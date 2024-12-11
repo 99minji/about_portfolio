@@ -1,0 +1,134 @@
+.info-area {
+  padding: 40px 30px;
+  text-align: center;
+  @include tablet {
+    padding: 30px 15px;
+  }
+
+  .my-img {
+    overflow: hidden;
+    width: 240px;
+    height: 240px;
+    margin: -180px auto 0 auto;
+    border-radius: 20px;
+    @include tablet {
+      width: 100%;
+      margin: 0;
+    }
+
+    & img {
+      width: 100%;
+    }
+  }
+
+  .my-name {
+    padding-top: 20px;
+    font-size: 26px;
+    font-weight: 500;
+  }
+
+  .my-bio {
+    display: inline-block;
+    height: 36px;
+    padding: 0 20px;
+    margin-top: 8px;
+    background-color: $light-white;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 36px;
+  }
+
+  .social-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin-top: 15px;
+
+    & > li {
+      & > a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        background-color: $light-white;
+        font-size: 20px;
+        text-align: center;
+      }
+
+      &:hover {
+        & > a {
+          background-color: $theme-primary;
+          color: #fff;
+          transition: 0.3s;
+        }
+      }
+    }
+  }
+
+  .info-contact {
+    margin-top: 30px;
+    padding: 20px 30px;
+    border-radius: 16px;
+    background-color: $light-white;
+    text-align: left;
+    @include tablet {
+      padding: 5px 15px;
+    }
+
+    .contact-box + .contact-box {
+      border-top: 1px solid #e3e3e3;
+    }
+
+    .contact-box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 0;
+
+      .icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 44px;
+        height: 44px;
+        border-radius: 8px;
+        background-color: #fff;
+        font-size: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+        transition: 0.3s;
+        @include tablet {
+          flex: 0 0 35px;
+          width: 35px;
+          height: 35px;
+        }
+      }
+
+      .icon.mobile {
+        color: #e93b81;
+      }
+
+      .text {
+        & > span {
+          font-size: 12px;
+          @include tablet {
+            font-size: 0.75rem;
+          }
+        }
+        & > p {
+          display: block;
+          color: #000;
+          font-size: 16px;
+          @include tablet {
+            display: block;
+            color: #000;
+            font-size: 0.875rem;
+          }
+        }
+      }
+    }
+  }
+}
