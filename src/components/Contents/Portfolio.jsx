@@ -1,5 +1,5 @@
 import React from "react";
 
 export default function Portfolio() {
-  return <div>hello</div>;
+  return <div>hello 머가~~</div>;
 }
