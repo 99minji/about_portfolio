@@ -14,15 +14,15 @@ export default function MyModal({ isOpen, component }) {
 
   return (
     <>
-      <button type="button" onClick={handleClose} className={s.btnClose}>
-        <FaX size={15} />
-      </button>
       <ReactModal
         isOpen={isOpen}
         onRequestClose={handleClose}
         overlayClassName={s.modalOverlay}
         className={s.modal}
       >
+        <button type="button" onClick={handleClose} className={s.btnClose}>
+          <FaX size={15} />
+        </button>
         <div>
           <div>{component}</div>
         </div>
