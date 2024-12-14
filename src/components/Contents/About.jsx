@@ -1,12 +1,5 @@
+import Portfolio from "../Portfolio/Portfolio";
 import styles from "./AboutResume.module.scss";
-import iconHtml from "../../assets/icon/skills/icon-html.png";
-import iconCSS from "../../assets/icon/skills/icon-css.png";
-import iconJs from "../../assets/icon/skills/icon-js.png";
-import iconJquery from "../../assets/icon/skills/icon-jquery.png";
-import iconReact from "../../assets/icon/skills/icon-react.png";
-import iconNext from "../../assets/icon/skills/icon-nextjs.png";
-import iconSass from "../../assets/icon/skills/icon-sass.png";
-import Portfolio from "./Portfolio";
 
 export default function About() {
   return (
@@ -37,31 +30,31 @@ export default function About() {
         <h3 className="section-title">💫 My Skill Stacks</h3>
         <ul className={styles.skills}>
           <li>
-            <img src={iconHtml} alt="html5" />
+            <img src="/assets/icon/skills/icon-html.png" alt="html5" />
             HTML5
           </li>
           <li>
-            <img src={iconCSS} alt="css" />
+            <img src="/assets/icon/skills/icon-css.png" alt="css" />
             CSS3
           </li>
           <li>
-            <img src={iconJs} alt="javascript" />
+            <img src="/assets/icon/skills/icon-js.png" alt="javascript" />
             Javascript
           </li>
           <li>
-            <img src={iconJquery} alt="jquery" />
+            <img src="/assets/icon/skills/icon-jquery.png" alt="jquery" />
             Jquery
           </li>
           <li>
-            <img src={iconReact} alt="REACT" />
+            <img src="/assets/icon/skills/icon-react.png" alt="REACT" />
             React
           </li>
           <li>
-            <img src={iconNext} alt="NEXTJS" />
+            <img src="/assets/icon/skills/icon-nextjs.png" alt="NEXTJS" />
             Next.js
           </li>
           <li>
-            <img src={iconSass} alt="sass" />
+            <img src="/assets/icon/skills/icon-sass.png" alt="sass" />
             Sass
           </li>
         </ul>

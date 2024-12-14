@@ -1,5 +1,4 @@
 import styles from "./Info.module.scss";
-import avatar from "../../assets/images/avatar.png";
 import {
   FaBloggerB,
   FaCalendarDays,
@@ -14,7 +13,7 @@ export default function Info() {
     <section className="content-box info">
       <div className={styles["info-area"]}>
         <div className={styles["my-img"]}>
-          <img src={avatar} alt="프로필" />
+          <img src="/assets/images/avatar.png" alt="프로필" />
         </div>
         <h4 className={styles["my-name"]}>Guminji</h4>
         <span className={styles["my-bio"]}>Frontend Developer</span>

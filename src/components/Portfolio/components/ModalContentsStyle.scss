@@ -1,0 +1,28 @@
+.modal-contents {
+  padding: 16px;
+  & > h3 {
+    margin: 20px 0 35px;
+    color: $theme;
+    font-size: 28px;
+    text-align: center;
+  }
+
+  .about {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 5px;
+
+    & > li {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 5px;
+      flex: 0 0 calc(50% - 5px);
+    }
+  }
+  .info {
+    padding-top: 20px;
+  }
+}

@@ -1,0 +1,30 @@
+.portfolioList {
+  & > li {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: $prink;
+    cursor: pointer;
+    transition: 0.5s;
+    &:hover {
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+    }
+    .img {
+      flex: 0 0 50%;
+      & img {
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+      }
+    }
+    .info {
+      color: $body-text;
+      font-size: 14px;
+    }
+  }
+  & > li:nth-child(2n) {
+    background-color: $catkrill;
+  }
+}

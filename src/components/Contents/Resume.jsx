@@ -1,5 +1,4 @@
 import styles from "./AboutResume.module.scss";
-import webdev from "../../assets/icon/webdev.svg";
 import { FaBriefcase, FaSchool } from "react-icons/fa6";
 
 export default function Resume() {
