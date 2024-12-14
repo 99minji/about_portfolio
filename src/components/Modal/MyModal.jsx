@@ -13,18 +13,20 @@ export default function MyModal({ isOpen, component }) {
   };
 
   return (
-    <ReactModal
-      isOpen={isOpen}
-      onRequestClose={handleClose}
-      overlayClassName={s.modalOverlay}
-      className={s.modal}
-    >
-      <div>
-        <button type="button" onClick={handleClose} className={s.btnClose}>
-          <FaX size={15} />
-        </button>
-        <div>{component}</div>
-      </div>
-    </ReactModal>
+    <>
+      <button type="button" onClick={handleClose} className={s.btnClose}>
+        <FaX size={15} />
+      </button>
+      <ReactModal
+        isOpen={isOpen}
+        onRequestClose={handleClose}
+        overlayClassName={s.modalOverlay}
+        className={s.modal}
+      >
+        <div>
+          <div>{component}</div>
+        </div>
+      </ReactModal>
+    </>
   );
 }

@@ -2,6 +2,7 @@ import MyModal from "../Modal/MyModal";
 import useModal from "../../hooks/useModal";
 import Taskify from "./components/Taskify";
 import s from "./Portfolio.module.scss";
+import { FaArrowUpRightFromSquare, FaCode } from "react-icons/fa6";
 
 export default function Portfolio() {
   const { openModal } = useModal();
@@ -14,6 +15,8 @@ export default function Portfolio() {
       component: <Taskify />,
       name: "Taskify [협업 프로젝트]",
       info: "일정 관리와 공유 기능을 제공하는 웹 애플리케이션",
+      skill: "React, Next.js, Typescript, Tailwind CSS, Zustand",
+      preview: "https://taskify-9-1.vercel.app/",
     },
     {
       id: 2,
@@ -40,9 +43,21 @@ export default function Portfolio() {
           <div className={s.img}>
             <img src={item.src} alt={item.name} />
           </div>
-          <div>
+          <div className={s.info}>
             <h3>{item.name}</h3>
-            <p className={s.info}>{item.info}</p>
+            <p className={s.text}>{item.info}</p>
+            <h4>
+              <FaCode size={20} />
+              기술 스택
+            </h4>
+            <p className={s.skills}>{item.skill}</p>
+            <p className={s.preview}>
+              <FaArrowUpRightFromSquare />
+              Preview:
+              <a href={item.preview} target="_blank" rel="noreferrer">
+                {item.preview}
+              </a>
+            </p>
           </div>
         </li>
       ))}

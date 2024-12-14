@@ -1,38 +1,64 @@
+.btnClose {
+  position: fixed;
+  left: 50%;
+  top: 30px;
+  width: 40px;
+  height: 40px;
+  margin-left: -20px;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  z-index: 10;
+  & > svg {
+    height: 100%;
+    color: #fff;
+  }
+}
+
 .modalOverlay {
   overflow: hidden;
   position: fixed;
   inset: 0;
   background-color: rgba(0, 0, 0, 0.451);
 }
+
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 850px;
+  width: 100%;
+  max-width: 850px;
   height: 80vh;
   border: 1px solid rgb(204, 204, 204);
   border-radius: 20px;
   background: rgb(255, 255, 255);
-  overflow: auto;
+
   outline: none;
   padding: 20px;
+  @include tablet {
+    width: 100%;
+    max-width: 660px;
+  }
 
   & > div {
     position: relative;
+    overflow: auto;
+    height: 100%;
 
-    .btnClose {
-      position: absolute;
-      right: 0;
-      top: 0;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      border: 1px solid #ddd;
-      & > svg {
-        height: 100%;
-        color: #ddd;
-      }
+    /* Scrollbar styling */
+    &::-webkit-scrollbar {
+      width: 10px; /* Scrollbar width */
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: $prink; /* Light background for the scrollbar track */
+      border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: $theme; /* Darker thumb color */
+      border-radius: 10px;
+      transition: background 0.3s ease; /* Smooth transition for hover effect */
     }
   }
 }

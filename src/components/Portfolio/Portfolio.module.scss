@@ -1,30 +1,87 @@
+/* 전체 목록 스타일 */
 .portfolioList {
-  & > li {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding-top: 20px;
+  margin: 0;
+}
+
+.itemBox {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.img {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.info {
+  padding: 15px;
+
+  & > h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+  }
+
+  .text {
+    font-size: 0.9rem;
+    color: #666;
+  }
+
+  & > h4 {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-top: 15px;
     display: flex;
-    gap: 10px;
-    margin-top: 20px;
-    padding: 20px;
-    border-radius: 20px;
-    background-color: $prink;
-    cursor: pointer;
-    transition: 0.5s;
-    &:hover {
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
-    }
-    .img {
-      flex: 0 0 50%;
-      & img {
-        width: 100%;
-        height: auto;
-        border-radius: 12px;
-      }
-    }
-    .info {
-      color: $body-text;
-      font-size: 14px;
+    align-items: center;
+    color: #333;
+    & > svg {
+      margin-right: 5px;
+      color: #007bff;
     }
   }
-  & > li:nth-child(2n) {
-    background-color: $catkrill;
+
+  .skills {
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 5px;
+  }
+
+  .preview {
+    margin-top: 20px;
+    color: #555;
+    font-size: 0.9rem;
+    & > svg {
+      margin-right: 10px;
+      color: #007bff;
+    }
+    & > a {
+      padding-left: 5px;
+      color: #007bff;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      &:hover {
+        color: #0056b3;
+      }
+    }
   }
 }
