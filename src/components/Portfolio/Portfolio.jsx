@@ -3,6 +3,7 @@ import useModal from "../../hooks/useModal";
 import Taskify from "./components/Taskify";
 import s from "./Portfolio.module.scss";
 import { FaArrowUpRightFromSquare, FaCode } from "react-icons/fa6";
+import LinkbraryModal from "./components/LinkbraryModal";
 
 export default function Portfolio() {
   const { openModal } = useModal();
@@ -15,14 +16,17 @@ export default function Portfolio() {
       component: <Taskify />,
       name: "Taskify [협업 프로젝트]",
       info: "일정 관리와 공유 기능을 제공하는 웹 애플리케이션",
-      skill: "React, Next.js, Typescript, Tailwind CSS, Zustand",
+      skill: "React, Next.js, Typescript, Tailwind CSS, Zustand, Vercel",
       preview: "https://taskify-9-1.vercel.app/",
     },
     {
       id: 2,
-      component: <div>두번째</div>,
-      name: "Another Component",
-      info: "안녕하세요",
+      src: "/assets/images/linkbrary.JPG",
+      component: <LinkbraryModal />,
+      name: "Linkbrary [협업 프로젝트]",
+      info: "나만의 링크를 관리하고 공유하는 서비스",
+      skill: "React, Next.js, Typescript, Tailwind CSS, Zustand, Vercel",
+      preview: "https://linkbrary-9-99.vercel.app/",
     },
     { id: 3, component: <div>Third Component</div>, name: "Third Component" },
     { id: 4, component: <div>Fourth Component</div>, name: "Fourth Component" },
