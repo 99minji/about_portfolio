@@ -6,6 +6,7 @@ import {
   FaRegFileLines,
   FaRegUser,
 } from "react-icons/fa6";
+import { SiNotion } from "react-icons/si";
 
 const Taskify = () => {
   return (
@@ -57,7 +58,17 @@ const Taskify = () => {
         같은 UI 개발을 위해 외부 라이브러리를 적극 활용하여 가독성과 사용성을
         개선할 수 있습니다.
       </p>
-      <h4>담당 기능 개발 및 구현</h4>
+
+      <h4>
+        <a
+          href="https://blossom-gargoyle-a6a.notion.site/FE_9-_-6700b139af42485d84c4181b43c00e6a?pvs=74"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <SiNotion /> 협업 과정 보러가기
+        </a>
+      </h4>
+      <h4>🛠️ 담당 기능 개발 및 구현</h4>
       <ul className="img-wrap">
         <li>
           <strong>⚙️ 내 대시보드 페이지</strong>

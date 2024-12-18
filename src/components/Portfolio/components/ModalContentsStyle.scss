@@ -35,13 +35,27 @@
   }
 
   .info {
-    padding-top: 20px;
+    padding-top: 40px;
     color: $body-text;
     word-break: keep-all;
   }
 
   & > h4 {
     padding-top: 20px;
+    font-size: 18px;
+    & > * {
+      display: inline-flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 5px;
+      font: inherit;
+      text-decoration: underline;
+
+      &:hover {
+        transition: 0.3s;
+        color: #ddd;
+      }
+    }
   }
 
   .img-wrap {
