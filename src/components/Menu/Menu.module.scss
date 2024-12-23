@@ -5,7 +5,7 @@
       width: 84px;
       height: 84px;
       border-radius: 12px;
-      background-color: $light-white;
+      background: $orange02;
       text-align: center;
       transition: 0.3s;
 
@@ -18,7 +18,7 @@
         width: 100%;
         height: 100%;
         padding-top: 2px;
-        color: $body-text;
+        color: $black01;
         font-size: 13px;
 
         & > svg {
@@ -27,10 +27,10 @@
       }
 
       &:hover {
-        background-color: $theme-primary;
+        border: 1px solid $orange01-hover;
 
         & > a {
-          color: #fff;
+          color: $orange01-hover;
         }
       }
     }
@@ -40,10 +40,10 @@
     }
 
     & > li.active {
-      background-color: $theme-primary;
+      border: 1px solid $orange01-hover;
 
       & > a {
-        color: #fff;
+        color: $orange01-hover;
       }
     }
   }

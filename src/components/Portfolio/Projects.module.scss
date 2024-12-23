@@ -1,9 +1,37 @@
+// 탭메뉴 스타일
+.tabs {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+
+  & button {
+    display: block;
+    position: relative;
+    padding: 0 15px;
+    color: $gray01;
+    border: 1px solid $gray01;
+    border-radius: 12px;
+    &:hover {
+      color: $orange01-hover;
+      border: 1px solid $orange01-hover;
+    }
+  }
+
+  & button.active {
+    color: $orange01-hover;
+    border: 1px solid $orange01-hover;
+    font-weight: 500;
+  }
+}
+
 /* 전체 목록 스타일 */
 .portfolioList {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
-  padding-top: 20px;
+  padding-top: 30px;
   margin: 0;
 }
 

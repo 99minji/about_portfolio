@@ -1,21 +1,29 @@
 @import "mixins";
 
 // color
-$body-text: #333;
-$body-heading: #000;
-$heading-black: #0f172a;
-$light-white: #f4f4f4;
-$light-white-2: #f8fbfb;
-$theme: #e93b81;
-$theme-hover: #f2518c;
-$theme-primary: #57a7f7;
-$prink: #fff4f4;
-$catkrill: #eef5fa;
+$white01: #fff;
+$gray01: #e0e0e0;
+$black01: #121212;
+$orange01: linear-gradient(
+  90deg,
+  rgba(255, 118, 88, 1) 0%,
+  rgba(255, 173, 130, 1) 100%
+);
+$orange01-hover: #ff6341;
+$orange02: #fff6ef;
+$orange03: #ffebd3;
+$orange03-hover: #fb8f16;
+$red01: #ffddd3;
+$red01-hover: #fd6734;
+$red02: #fb9e8c;
+$red03: #ff7558;
+$yellow01: #ffca41;
 
 body {
-  background-image: url("../../public/assets/images/page-bg.jpg");
-  background-position: 50%;
-  background-size: cover;
+  background-color: $orange02;
+  // background-image: url("../../public/assets/images/page-bg.jpg");
+  // background-position: 50%;
+  // background-size: cover;
 }
 
 .container {
@@ -39,6 +47,7 @@ body {
       height: 100%;
       background-color: #fff;
       border-radius: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04);
     }
 
     .content-box.info {
@@ -79,28 +88,27 @@ body {
 h2.page-title {
   display: inline-block;
   position: relative;
-  padding-right: 230px;
+  color: $red01-hover;
   font-size: 40px;
   font-weight: 700;
+  z-index: 1;
   @include mobile {
-    width: 100%;
-    padding-right: 100px;
     font-size: 32px;
   }
 
-  &::after {
+  &:after {
     display: block;
-    content: "";
     position: absolute;
-    right: 0;
-    top: 50%;
-    width: 200px;
-    height: 3px;
-    margin-top: -1.5px;
-    background-color: $theme-primary;
-    border-radius: 5px;
+    left: 0;
+    bottom: 10px;
+    width: 100%;
+    height: 10px;
+    content: "";
+    background: $red02;
+    opacity: 0.7;
+    z-index: -1;
     @include mobile {
-      width: 65px;
+      height: 8px;
     }
   }
 }
@@ -115,6 +123,7 @@ h3.sub-title {
 
 h3.section-title {
   margin-top: 15px;
+  color: $red01-hover;
   font-size: 28px;
   font-weight: 500;
 }
@@ -122,7 +131,9 @@ h3.section-title {
 .section-wrapper {
   margin-top: 30px;
   padding: 45px 60px 60px;
-  background-color: $light-white-2;
+  @include tablet {
+    padding: 25px 15px 30px;
+  }
   @include mobile {
     padding: 30px 20px;
   }

@@ -32,8 +32,9 @@
     height: 36px;
     padding: 0 20px;
     margin-top: 8px;
-    background-color: $light-white;
+    background: $orange01;
     border-radius: 5px;
+    color: $white01;
     font-size: 14px;
     font-weight: 500;
     line-height: 36px;
@@ -54,15 +55,15 @@
         width: 40px;
         height: 40px;
         border-radius: 8px;
-        background-color: $light-white;
+        background: $orange01;
+        color: $white01;
         font-size: 20px;
         text-align: center;
       }
 
       &:hover {
         & > a {
-          background-color: $theme-primary;
-          color: #fff;
+          color: $white01;
           transition: 0.3s;
         }
       }
@@ -73,14 +74,14 @@
     margin-top: 30px;
     padding: 20px 30px;
     border-radius: 16px;
-    background-color: $light-white;
+    background: $orange02;
     text-align: left;
     @include tablet {
       padding: 5px 15px;
     }
 
     .contact-box + .contact-box {
-      border-top: 1px solid #e3e3e3;
+      border-top: 1px solid $gray01;
     }
 
     .contact-box {
@@ -96,7 +97,7 @@
         width: 44px;
         height: 44px;
         border-radius: 8px;
-        background-color: #fff;
+        background-color: $white01;
         font-size: 20px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
         transition: 0.3s;
@@ -108,10 +109,11 @@
       }
 
       .icon.mobile {
-        color: #e93b81;
+        color: $orange01-hover;
       }
 
       .text {
+        color: $orange01-hover;
         & > span {
           font-size: 12px;
           @include tablet {

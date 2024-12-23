@@ -1,13 +1,12 @@
-import Portfolio from "../Portfolio/Projects";
-import styles from "./AboutResume.module.scss";
+import s from "./Contents.module.scss";
 import Career from "./Career";
 
 export default function About() {
   return (
     <>
       <div className="inner">
-        <h2 className="page-title">About</h2>
-        <div className={styles["info"]}>
+        <h2 className="page-title">About .</h2>
+        <div className={s.info}>
           <p>
             안녕하세요🖐️ 저는 프론트엔드 개발에 열정을 가진 구민지입니다.
             <br /> 웹을 통해 사람들과 소통하고{" "}
@@ -30,12 +29,12 @@ export default function About() {
             감사합니다!
           </p>
         </div>
-        <h2 className="page-title">Career</h2>
+        <h2 className="page-title">Career .</h2>
         <Career />
       </div>
       <div className="section-wrapper">
         <h3 className="section-title">💫 My Skill Stacks</h3>
-        <ul className={styles.skills}>
+        <ul className={s.skills}>
           <li>
             <img src="/assets/icon/skills/icon-html.png" alt="html5" />
             HTML5

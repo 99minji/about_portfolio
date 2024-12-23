@@ -36,7 +36,7 @@
 
       .btnMenu.open {
         color: #fff;
-        background: $theme-primary;
+        background: $orange01;
       }
     }
 
@@ -73,7 +73,7 @@
 
           &:hover {
             opacity: 0.8;
-            background: $theme-primary;
+            background: $orange01;
             color: #fff;
           }
         }
@@ -82,7 +82,7 @@
       & > li.active {
         & > a {
           opacity: 0.8;
-          background: $theme-primary;
+          background: $orange01;
           color: #fff;
         }
       }

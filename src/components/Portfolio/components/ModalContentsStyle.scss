@@ -2,7 +2,7 @@
   padding: 16px;
   & > h3 {
     margin: 20px 0 35px;
-    color: $theme;
+    color: $red03;
     font-size: 28px;
     text-align: center;
   }
@@ -36,7 +36,7 @@
 
   .info {
     padding-top: 40px;
-    color: $body-text;
+    color: $black01;
     word-break: keep-all;
   }
 
@@ -66,12 +66,15 @@
       margin-top: 15px;
       padding: 15px 20px 20px;
       border-radius: 20px;
-      background: $prink;
+      background: $red01;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+
       & > strong {
         display: block;
-        padding-bottom: 5px;
+        padding-bottom: 10px;
         color: #111;
       }
+
       .box {
         overflow: hidden;
         border-radius: 12px;
@@ -87,14 +90,10 @@
 
       .text {
         padding: 15px;
-        color: $body-text;
+        color: $black01;
         font-size: 14px;
         word-break: keep-all;
       }
-    }
-
-    & > li:nth-child(2n) {
-      background: $catkrill;
     }
   }
 }

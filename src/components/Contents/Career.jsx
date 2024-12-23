@@ -1,17 +1,17 @@
-import styles from "./AboutResume.module.scss";
+import s from "./Contents.module.scss";
 import { FaBriefcase, FaSchool } from "react-icons/fa6";
 
 export default function Career() {
   return (
-    <div className={styles["what-do"]}>
+    <div className={s["what-do"]}>
       <div>
         <h3 className="sub-title">
           <FaSchool />
           Education
         </h3>
-        <div className={`${styles.box} ${styles.blue}`}>
-          <div className={styles.text}>
-            <span className={styles.year}>2024.07 - 2024.12</span>
+        <div className={s.box}>
+          <div className={s.text}>
+            <span className={s.year}>2024.07 - 2024.12</span>
             <h4>Codeit 부트캠프</h4>
             <p>
               <span>HTML, CSS, JavaScript를 통한 웹 개발 기초 학습</span>
@@ -30,9 +30,9 @@ export default function Career() {
           <FaBriefcase />
           Experience
         </h3>
-        <div className={`${styles.box} ${styles.blue}`}>
-          <div className={styles.text}>
-            <span className={styles.year}>2021 - 2023</span>
+        <div className={s.box}>
+          <div className={s.text}>
+            <span className={s.year}>2021 - 2023</span>
             <h4>
               Web Publisher
               <span>
@@ -47,9 +47,9 @@ export default function Career() {
             </p>
           </div>
         </div>
-        <div className={`${styles.box} ${styles.pink}`}>
-          <div className={styles.text}>
-            <span className={styles.year}>2024.01 - 2024.06</span>
+        <div className={s.box}>
+          <div className={s.text}>
+            <span className={s.year}>2024.01 - 2024.06</span>
             <h4>
               Web Publisher
               <span>

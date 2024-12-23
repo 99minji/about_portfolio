@@ -19,6 +19,7 @@
   position: fixed;
   inset: 0;
   background-color: rgba(0, 0, 0, 0.451);
+  z-index: 10;
 }
 
 .modal {
@@ -29,12 +30,12 @@
   width: 100%;
   max-width: 850px;
   height: 80vh;
+  padding: 20px;
   border: 1px solid rgb(204, 204, 204);
   border-radius: 20px;
   background: rgb(255, 255, 255);
-
   outline: none;
-  padding: 20px;
+  z-index: 20;
   @include tablet {
     width: 100%;
     max-width: 660px;
@@ -51,12 +52,12 @@
     }
 
     &::-webkit-scrollbar-track {
-      background-color: $prink; /* Light background for the scrollbar track */
+      background-color: $orange03; /* Light background for the scrollbar track */
       border-radius: 10px;
     }
 
     &::-webkit-scrollbar-thumb {
-      background: $theme; /* Darker thumb color */
+      background: $orange01; /* Darker thumb color */
       border-radius: 10px;
       transition: background 0.3s ease; /* Smooth transition for hover effect */
     }
