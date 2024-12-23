@@ -9,10 +9,10 @@
   & button {
     display: block;
     position: relative;
-    padding: 0 15px;
+    padding: 2px 15px;
     color: $gray01;
     border: 1px solid $gray01;
-    border-radius: 12px;
+    border-radius: 16px;
     &:hover {
       color: $orange01-hover;
       border: 1px solid $orange01-hover;
