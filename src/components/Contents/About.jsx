@@ -1,5 +1,6 @@
-import Portfolio from "../Portfolio/Portfolio";
+import Portfolio from "../Portfolio/Projects";
 import styles from "./AboutResume.module.scss";
+import Career from "./Career";
 
 export default function About() {
   return (
@@ -8,23 +9,29 @@ export default function About() {
         <h2 className="page-title">About</h2>
         <div className={styles["info"]}>
           <p>
-            현재 사이트는 React / Sass / module.css 등을 사용하여
-            제작되었습니다.
-            <br />
-            궁금한 점이나 관심이 있으시면 ✉️
-            <a className={styles.link} href="mailto:rnalswl96@naver.com">
-              rnalswl96@naver.com
-            </a>
-            으로 언제든지 연락주세요.
-            <br />
-            함께 성장할 기회를 기다립니다!
+            안녕하세요🖐️ 저는 프론트엔드 개발에 열정을 가진 구민지입니다.
+            <br /> 웹을 통해 사람들과 소통하고{" "}
+            <strong>사용자에게 뛰어난 경험을 제공</strong>하는 것을 목표로 하고
+            있습니다.
             <br />
             <br />
-            포트폴리오를 통해 제 작업을 확인해 주셔서 감사합니다 😊
+            저는 디자인과 기술의 조화를 믿으며 매력적이고 직관적인 인터페이스를
+            만드는 데 힘쓰고 있습니다.{" "}
+            <strong>
+              최신 웹 기술을 탐구하며 창의적인 문제 해결을 즐기고 새로운 도전
+            </strong>
+            에 항상 열려 있습니다.
+            <br />웹 퍼블리셔의 경험을 통해 다양한 프로젝트에 참여하며{" "}
+            <strong>협업의 중요성과 지속적인 학습의 가치</strong>를 깊이
+            깨달았습니다. 사용자 중심의 사고를 바탕으로, 혁신적이고 효율적인 웹
+            솔루션을 만들어 나가고 싶습니다.
+            <br />
+            <br />제 포트폴리오를 통해 제 작업을 확인해 주시기 바랍니다.
+            감사합니다!
           </p>
         </div>
-        <h2 className="page-title">My Portfolio</h2>
-        <Portfolio />
+        <h2 className="page-title">Career</h2>
+        <Career />
       </div>
       <div className="section-wrapper">
         <h3 className="section-title">💫 My Skill Stacks</h3>

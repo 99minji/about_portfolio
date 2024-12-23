@@ -2,7 +2,6 @@ import {
   FaAddressBook,
   FaBars,
   FaBloggerB,
-  FaRegFileLines,
   FaRegFolder,
   FaRegUser,
   FaXmark,
@@ -13,8 +12,7 @@ import s from "./Header.module.scss";
 
 const menuItems = [
   { path: "/", label: "About", icon: <FaRegUser /> },
-  { path: "/resume", label: "Resume", icon: <FaRegFileLines /> },
-  { path: "/portfolio", label: "Portfolio", icon: <FaRegFolder /> },
+  { path: "/projects", label: "Projects", icon: <FaRegFolder /> },
   { path: "/blog", label: "Blogs", icon: <FaBloggerB /> },
   { path: "/contact", label: "Contact", icon: <FaAddressBook /> },
 ];
