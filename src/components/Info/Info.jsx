@@ -19,7 +19,7 @@ export default function Info() {
         <span className={styles["my-bio"]}>Frontend Developer</span>
         <ul className={styles["social-link"]}>
           <li>
-            <a href="#" target="_blank">
+            <a href="/" target="_blank">
               <FaGithub />
             </a>
           </li>
