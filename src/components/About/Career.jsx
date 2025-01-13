@@ -1,5 +1,5 @@
-import s from "./Contents.module.scss";
 import { FaBriefcase, FaSchool } from "react-icons/fa6";
+import s from "./AboutPage.module.scss";
 
 export default function Career() {
   return (

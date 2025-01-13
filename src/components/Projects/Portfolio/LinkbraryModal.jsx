@@ -79,7 +79,7 @@ const LinkbraryModal = () => {
           <strong>⚙️ 즐겨찾기 페이지</strong>
           <div className="box">
             <div className="img">
-              <img src="/assets/images/linkbrary-favorite.gif" alt="이미지" />
+              <img src="/assets/gif/linkbrary-favorite.gif" alt="이미지" />
             </div>
             <div className="text">
               - 링크 관리 서비스에서 즐겨찾기된 링크만을 선별하여 보여주는 전용

@@ -2,10 +2,10 @@ import { FaArrowUpRightFromSquare, FaCode } from "react-icons/fa6";
 import { useState } from "react";
 import MyModal from "../Modal/MyModal";
 import useModal from "../../hooks/useModal";
-import Taskify from "./components/Taskify";
+import Taskify from "./Portfolio/Taskify";
+import LinkbraryModal from "./Portfolio/LinkbraryModal";
+import Travelmaker from "./Portfolio/Travelmaker";
 import s from "./Projects.module.scss";
-import LinkbraryModal from "./components/LinkbraryModal";
-import Travelmaker from "./components/Travelmaker";
 
 export default function Projects() {
   const { openModal } = useModal();

@@ -1,10 +1,10 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Header from "./layout/Header";
 import Info from "./components/Info/Info";
-import About from "./components/Contents/About";
+import About from "./components/About/About";
+import Projects from "./components/Projects/Projects";
 import Menu from "./components/Menu/Menu";
 import "./styles/reset.scss";
-import Header from "./layout/Header";
-import Projects from "./components/Portfolio/Projects";
 
 const App = () => {
   return (

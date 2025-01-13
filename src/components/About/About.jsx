@@ -1,4 +1,4 @@
-import s from "./Contents.module.scss";
+import s from "./AboutPage.module.scss";
 import Career from "./Career";
 
 export default function About() {
