@@ -5,6 +5,7 @@ import useModal from "../../hooks/useModal";
 import Taskify from "./components/Taskify";
 import s from "./Projects.module.scss";
 import LinkbraryModal from "./components/LinkbraryModal";
+import Travelmaker from "./components/Travelmaker";
 
 export default function Projects() {
   const { openModal } = useModal();
@@ -38,12 +39,22 @@ export default function Projects() {
     },
     {
       id: 3,
-      src: "/assets/images/linkbrary.JPG",
-      component: <LinkbraryModal />,
-      name: "Linkbrary",
-      info: "나만의 링크를 관리하고 공유하는 서비스",
-      skill: "React, Next.js, Typescript, Tailwind CSS, Zustand, Vercel",
-      preview: "https://linkbrary-9-99.vercel.app/",
+      src: "/assets/images/travelmaker.JPG",
+      component: <Travelmaker />,
+      name: "Travelmaker",
+      info: "체험을 제공하고 혹은 예약할 수 있는 플랫폼",
+      skill: "React, Next.js, Typescript, Sass, Zod, Zustand, Vercel",
+      preview: "https://travelmaker-ten.vercel.app/",
+      type: "Team",
+    },
+    {
+      id: 4,
+      src: "/assets/images/travelmaker.JPG",
+      component: <Travelmaker />,
+      name: "개인 프로젝트",
+      info: "체험을 제공하고 혹은 예약할 수 있는 플랫폼",
+      skill: "React, Next.js, Typescript, Sass, Zod, Zustand, Vercel",
+      preview: "https://travelmaker-ten.vercel.app/",
       type: "Single",
     },
   ];
