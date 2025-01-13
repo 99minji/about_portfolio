@@ -106,7 +106,7 @@ export default function Projects() {
                 <p className={s.skills}>{item.skill}</p>
                 <p className={s.preview}>
                   <FaArrowUpRightFromSquare />
-                  Preview:
+                  Preview :
                   <a href={item.preview} target="_blank" rel="noreferrer">
                     {item.preview}
                   </a>

@@ -32,7 +32,7 @@
     height: 36px;
     padding: 0 20px;
     margin-top: 8px;
-    background: $orange01;
+    background: $main;
     border-radius: 5px;
     color: $white01;
     font-size: 14px;
@@ -55,7 +55,7 @@
         width: 40px;
         height: 40px;
         border-radius: 8px;
-        background: $orange01;
+        background: $main;
         color: $white01;
         font-size: 20px;
         text-align: center;
@@ -74,7 +74,7 @@
     margin-top: 30px;
     padding: 20px 30px;
     border-radius: 16px;
-    background: $orange02;
+    background: $gray01;
     text-align: left;
     @include tablet {
       padding: 5px 15px;
@@ -109,11 +109,11 @@
       }
 
       .icon.mobile {
-        color: $orange01-hover;
+        color: $main;
       }
 
       .text {
-        color: $orange01-hover;
+        color: $main;
         & > span {
           font-size: 12px;
           @include tablet {
@@ -122,11 +122,11 @@
         }
         & > p {
           display: block;
-          color: #000;
+          color: $black01;
           font-size: 16px;
           @include tablet {
             display: block;
-            color: #000;
+            color: $black01;
             font-size: 0.875rem;
           }
         }

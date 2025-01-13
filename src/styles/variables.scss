@@ -2,26 +2,16 @@
 
 // color
 $white01: #fff;
-$gray01: #e0e0e0;
-$black01: #121212;
-$orange01: linear-gradient(
-  90deg,
-  rgba(255, 118, 88, 1) 0%,
-  rgba(255, 173, 130, 1) 100%
-);
-$orange01-hover: #ff6341;
-$orange02: #fff6ef;
-$orange03: #ffebd3;
-$orange03-hover: #fb8f16;
-$red01: #ffddd3;
-$red01-hover: #fd6734;
-$red02: #fb9e8c;
-$red03: #ff7558;
-$yellow01: #ffca41;
+$black01: #100e10;
+$gray01: #f5f4f5;
+$gray02: #4f4f4f;
+$main: #7e37f9;
+$sub: #ba9afc;
+$bg: #f9f9f9;
 
 body {
-  background-color: $orange02;
-  // background-image: url("../../public/assets/images/page-bg.jpg");
+  background-color: $bg;
+  // background-image: url("../../public/assets/images/bg2.jpg");
   // background-position: 50%;
   // background-size: cover;
 }
@@ -88,7 +78,7 @@ body {
 h2.page-title {
   display: inline-block;
   position: relative;
-  color: $red01-hover;
+  color: $black01;
   font-size: 40px;
   font-weight: 700;
   z-index: 1;
@@ -104,7 +94,7 @@ h2.page-title {
     width: 100%;
     height: 10px;
     content: "";
-    background: $red02;
+    background: $main;
     opacity: 0.7;
     z-index: -1;
     @include mobile {
@@ -123,7 +113,7 @@ h3.sub-title {
 
 h3.section-title {
   margin-top: 15px;
-  color: $red01-hover;
+  color: $main;
   font-size: 28px;
   font-weight: 500;
 }

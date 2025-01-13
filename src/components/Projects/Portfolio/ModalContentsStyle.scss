@@ -2,7 +2,7 @@
   padding: 16px;
   & > h3 {
     margin: 20px 0 35px;
-    color: $red03;
+    color: $main;
     font-size: 28px;
     text-align: center;
   }
@@ -23,12 +23,16 @@
       align-items: center;
       gap: 5px;
       flex: 0 0 calc(50% - 5px);
+      color: $black01;
       font-size: 15px;
-
+      font-weight: 500;
+      & > svg {
+        color: $main;
+      }
       & > a {
         &:hover {
           transition: 0.2s;
-          color: #ddd;
+          color: $main;
         }
       }
     }
@@ -42,6 +46,7 @@
 
   & > h4 {
     padding-top: 20px;
+    color: $black01;
     font-size: 18px;
     & > * {
       display: inline-flex;
@@ -53,7 +58,7 @@
 
       &:hover {
         transition: 0.3s;
-        color: #ddd;
+        color: $main;
       }
     }
   }
@@ -66,19 +71,19 @@
       margin-top: 15px;
       padding: 15px 20px 20px;
       border-radius: 20px;
-      background: $red01;
+      background: $gray01;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
 
       & > strong {
         display: block;
         padding-bottom: 10px;
-        color: #111;
+        color: $black01;
       }
 
       .box {
         overflow: hidden;
         border-radius: 12px;
-        background-color: #fff;
+        background-color: $white01;
 
         .img {
           width: 100%;
