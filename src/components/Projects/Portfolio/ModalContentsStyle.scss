@@ -1,5 +1,8 @@
 .modal-contents {
   padding: 16px;
+  @include mobile {
+    padding: 8px;
+  }
   & > h3 {
     margin: 20px 0 35px;
     color: $main;
@@ -73,6 +76,9 @@
       border-radius: 20px;
       background: $gray01;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+      @include mobile {
+        padding: 10px 15px 15px;
+      }
 
       & > strong {
         display: block;
@@ -96,8 +102,34 @@
       .text {
         padding: 15px;
         color: $black01;
-        font-size: 14px;
+        font-size: 16px;
         word-break: keep-all;
+        @include mobile {
+          padding: 10px;
+        }
+        > p {
+          position: relative;
+          padding: 5px 0 0 20px;
+          @include mobile {
+            padding: 5px 0 0 12px;
+            font-size: 14px;
+          }
+          &::before {
+            display: inline-block;
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 12px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: $sub;
+            @include mobile {
+              width: 5px;
+              height: 5px;
+            }
+          }
+        }
       }
     }
   }

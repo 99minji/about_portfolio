@@ -6,6 +6,7 @@ import Taskify from "./Portfolio/Taskify";
 import LinkbraryModal from "./Portfolio/LinkbraryModal";
 import Travelmaker from "./Portfolio/Travelmaker";
 import s from "./Projects.module.scss";
+import Musicvibe from "./Portfolio/Musicvibe";
 
 export default function Projects() {
   const { openModal } = useModal();
@@ -49,12 +50,12 @@ export default function Projects() {
     },
     {
       id: 4,
-      src: "/assets/images/travelmaker.JPG",
-      component: <Travelmaker />,
-      name: "개인 프로젝트",
+      src: "/assets/images/progress.png",
+      component: <Musicvibe />,
+      name: "개인 프로젝트(진행중)",
       info: "체험을 제공하고 혹은 예약할 수 있는 플랫폼",
-      skill: "React, Next.js, Typescript, Sass, Zod, Zustand, Vercel",
-      preview: "https://travelmaker-ten.vercel.app/",
+      skill: "React, Typescript, Sass, Vercel",
+      preview: "x",
       type: "Single",
     },
   ];

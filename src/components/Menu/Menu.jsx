@@ -2,7 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import styles from "./Menu.module.scss";
 import {
   FaAddressBook,
-  FaBloggerB,
+  // FaBloggerB,
   FaRegFolder,
   FaRegUser,
 } from "react-icons/fa6";
@@ -10,7 +10,7 @@ import {
 const menuItems = [
   { path: "/", label: "About", icon: <FaRegUser /> },
   { path: "/projects", label: "Projects", icon: <FaRegFolder /> },
-  { path: "/blog", label: "Blogs", icon: <FaBloggerB /> },
+  // { path: "/blog", label: "Blogs", icon: <FaBloggerB /> },
   { path: "/contact", label: "Contact", icon: <FaAddressBook /> },
 ];
 
