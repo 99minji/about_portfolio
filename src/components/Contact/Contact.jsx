@@ -13,9 +13,6 @@ const Contact = () => {
       const script = document.createElement("script");
       script.src = src;
       script.async = true;
-      script.onload = () => {
-        console.log("External script loaded");
-      };
       script.onerror = () => {
         console.error("Failed to load script");
       };
