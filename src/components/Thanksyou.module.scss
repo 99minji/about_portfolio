@@ -1,0 +1,47 @@
+.thankyou-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 20px;
+  background-color: $gray01;
+  border-radius: 20px;
+
+  .thankyou-message {
+    text-align: center;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+
+    h2 {
+      font-size: 24px;
+      font-weight: bold;
+      color: $black01;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 16px;
+      color: $black01;
+      margin-bottom: 15px;
+      line-height: 1.6;
+      word-break: keep-all;
+    }
+
+    .cta {
+      margin-top: 30px;
+      font-size: 16px;
+      color: $sub;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: $main;
+      }
+    }
+  }
+}

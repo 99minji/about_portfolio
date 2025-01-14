@@ -6,6 +6,7 @@ import Projects from "./components/Projects/Projects";
 import Menu from "./components/Menu/Menu";
 import "./styles/reset.scss";
 import Contact from "./components/Contact/Contact";
+import Thanksyou from "./components/Thanksyou";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
               <Route path="/" element={<About />} />
               <Route path="/Projects" element={<Projects />} />
               <Route path="/Contact" element={<Contact />} />
+              <Route path="/Thanksyou" element={<Thanksyou />} />
             </Routes>
           </section>
           <Menu />

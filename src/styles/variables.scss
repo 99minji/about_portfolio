@@ -42,9 +42,10 @@ body {
 
     .content-box.info {
       position: sticky;
-      top: 150px;
+      top: 180px;
       @include tablet {
         width: 255px;
+        top: 40px;
       }
       @include mobile {
         position: relative;

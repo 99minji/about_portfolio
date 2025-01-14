@@ -45,7 +45,6 @@ export default function Header() {
       <header className={s.header}>
         <div className={s.headerWrap}>
           <div className={s.buttonWrap}>
-            <button type="button">md</button>
             <button
               type="button"
               ref={menuRef}
