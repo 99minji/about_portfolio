@@ -21,17 +21,6 @@ const LinkbraryModal = () => {
           Client: 코드잇 부트캠프 9기 스터디팀
         </li>
         <li>
-          <FaGithub />
-          Github:
-          <a
-            href="https://github.com/99minji/linkbrary"
-            target="_blank"
-            rel="noreferrer"
-          >
-            github.com/99minji/linkbrary
-          </a>
-        </li>
-        <li>
           <FaArrowUpRightFromSquare />
           Preview:
           <a
@@ -42,6 +31,18 @@ const LinkbraryModal = () => {
             linkbrary-9-99.vercel.app
           </a>
         </li>
+        <li>
+          <FaGithub />
+          Github:
+          <a
+            href="https://github.com/99minji/linkbrary"
+            target="_blank"
+            rel="noreferrer"
+          >
+            github.com/99minji/linkbrary
+          </a>
+        </li>
+        <li>ㄴ TEST ID: haha@email.com/ PW: haha1234</li>
       </ul>
       <p className="info">
         'Linkbrary'는 저장하고 싶은 링크를 효율적으로 관리하고, 공유 및 즐겨찾기

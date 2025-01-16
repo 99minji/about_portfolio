@@ -21,17 +21,6 @@ const Travelmaker = () => {
           Client: 코드잇 부트캠프 9기 4-4팀
         </li>
         <li>
-          <FaGithub />
-          Github:
-          <a
-            href="https://github.com/JaeGuipi/travelmaker.git"
-            target="_blank"
-            rel="noreferrer"
-          >
-            github.com/JaeGuipi/travelmaker.git
-          </a>
-        </li>
-        <li>
           <FaArrowUpRightFromSquare />
           Preview:
           <a
@@ -42,6 +31,18 @@ const Travelmaker = () => {
             travelmaker-ten.vercel.app
           </a>
         </li>
+        <li>
+          <FaGithub />
+          Github:
+          <a
+            href="https://github.com/JaeGuipi/travelmaker.git"
+            target="_blank"
+            rel="noreferrer"
+          >
+            github.com/JaeGuipi/travelmaker.git
+          </a>
+        </li>
+        <li>ㄴ TEST ID: test1234@email.com/ PW: test1234</li>
       </ul>
       <p className="info">
         사용자가 판매자와 체험자 모두 될 수 있는 플랫폼으로 판매자가 되어 체험을

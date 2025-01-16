@@ -22,17 +22,6 @@ const Taskify = () => {
           Client: 코드잇 부트캠프 9기 3-1팀
         </li>
         <li>
-          <FaGithub />
-          Github:
-          <a
-            href="https://github.com/99minji/taskify.git"
-            target="_blank"
-            rel="noreferrer"
-          >
-            github.com/99minji/taskify.git
-          </a>
-        </li>
-        <li>
           <FaArrowUpRightFromSquare />
           Preview:
           <a
@@ -43,6 +32,18 @@ const Taskify = () => {
             taskify-9-1.vercel.app
           </a>
         </li>
+        <li>
+          <FaGithub />
+          Github:
+          <a
+            href="https://github.com/99minji/taskify.git"
+            target="_blank"
+            rel="noreferrer"
+          >
+            github.com/99minji/taskify.git
+          </a>
+        </li>
+        <li>ㄴ TEST ID: haha@email.com/ PW: haha1234</li>
       </ul>
       <p className="info">
         'Taskify'는 일정 관리와 공유 기능을 제공하는 웹 애플리케이션입니다.
