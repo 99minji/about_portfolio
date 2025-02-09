@@ -20,6 +20,16 @@ export default function Projects() {
   const items = [
     {
       id: 1,
+      src: "/assets/images/travelmaker.JPG",
+      component: <Travelmaker />,
+      name: "Travelmaker",
+      info: "체험을 제공하고 혹은 예약할 수 있는 플랫폼",
+      skill: "React, Next.js, Typescript, Sass, Zod, Zustand, Vercel",
+      preview: "https://travelmaker-ten.vercel.app/",
+      type: "Team",
+    },
+    {
+      id: 2,
       src: "/assets/images/taskify.JPG",
       component: <Taskify />,
       name: "Taskify",
@@ -29,7 +39,7 @@ export default function Projects() {
       type: "Team",
     },
     {
-      id: 2,
+      id: 3,
       src: "/assets/images/linkbrary.JPG",
       component: <LinkbraryModal />,
       name: "Linkbrary",
@@ -38,16 +48,7 @@ export default function Projects() {
       preview: "https://linkbrary-9-99.vercel.app/",
       type: "Team",
     },
-    {
-      id: 3,
-      src: "/assets/images/travelmaker.JPG",
-      component: <Travelmaker />,
-      name: "Travelmaker",
-      info: "체험을 제공하고 혹은 예약할 수 있는 플랫폼",
-      skill: "React, Next.js, Typescript, Sass, Zod, Zustand, Vercel",
-      preview: "https://travelmaker-ten.vercel.app/",
-      type: "Team",
-    },
+
     {
       id: 4,
       src: "/assets/images/progress.png",

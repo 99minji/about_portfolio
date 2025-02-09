@@ -47,14 +47,13 @@ const Taskify = () => {
       </ul>
       <p className="info">
         - Context API 사용 시 불필요한 렌더링과 복잡한 상태 관리 문제가 발생하여
-        Zustand를 도입해 전역 상태 관리를 단순화하고 필요한 컴포넌트만
-        렌더링되도록 최적화하여 대시보드 성능을 개선함.
-        <br />- 초기 인증 처리는 SSR(Server-Side Rendering)에서 수행하여 보안을
-        강화하고, 로그인 후 자주 변경되는 대시보드 데이터는 CSR(Client-Side
-        Rendering) 방식으로 가져오는 하이브리드 방식을 적용하여 보안성과 성능을
-        동시에 최적화함.
+        <strong>Zustand</strong>를 도입해 전역 상태 관리를 단순화하고 필요한
+        컴포넌트만 렌더링되도록 최적화하여 대시보드 성능을 개선했습니다.
+        <br />- 초기 인증 처리는 <strong>SSR(Server-Side Rendering)</strong>에서
+        수행하여 보안을 강화하고, 로그인 후 자주 변경되는 대시보드 데이터는
+        <strong>CSR(Client-Side Rendering)</strong> 방식으로 가져오는 하이브리드
+        방식을 적용하여 보안성과 성능을 동시에 최적화했습니다.
       </p>
-
       <h4>
         <a
           href="https://blossom-gargoyle-a6a.notion.site/FE_9-_-6700b139af42485d84c4181b43c00e6a?pvs=74"
