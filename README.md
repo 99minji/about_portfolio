@@ -1,6 +1,6 @@
 # 구민지의 포트폴리오
 ### 제 포트폴리오에 오신 것을 환영합니다! 이 프로젝트는 프론트엔드 개발자로서의 기술과 저의 프로젝트들을 확인할 수 있습니다!
-### 사이트 : [https://guminji.netlify.app/](https://guminji.netlify.app/) <a href="https://guminji.netlify.app/" target="_blank" alt="포트폴리오">https://guminji.netlify.app/</a>
+### 포트폴리오 사이트 : <a href="https://guminji.netlify.app/" target="_blank" alt="포트폴리오">https://guminji.netlify.app/</a>
 <br/>
 
 ## ☑️ 소개
