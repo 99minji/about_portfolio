@@ -47,9 +47,6 @@ const Travelmaker = () => {
       <p className="info">
         - Next.js의 App Router에서 빌드 시 발생한 'window is not defined' 오류를
         해결하기 위해 Kakao Maps API를 클라이언트에서만 로드하도록 구현했습니다.
-        <br />- 반응형 디자인에 따른 네트워크 요청이 반복적으로 발생하는 문제를
-        방지하기 위해 요청을 디바운싱(debouncing)하여 불필요한 요청을 최소화하고
-        성능을 개선했습니다.
         <br />- 시간과 날짜를 직관적으로 표시하여 예약하도록 FullCalendar
         라이브러리를 사용하였으며 날짜 및 시간 선택 기능을 구현하여 예약 기능의
         편의성을 높였습니다.
