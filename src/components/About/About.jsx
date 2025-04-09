@@ -8,7 +8,7 @@ export default function About() {
         <h2 className="page-title">About .</h2>
         <div className={s.info}>
           <p>
-            안녕하세요🖐️ 저는 프론트엔드 개발에 열정을 가진 구민지입니다.
+            안녕하세요🖐️
             <br /> 웹을 통해 사람들과 소통하고{" "}
             <strong>사용자에게 뛰어난 경험을 제공</strong>하는 것을 목표로 하고
             있습니다.
