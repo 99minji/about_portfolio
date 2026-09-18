@@ -16,13 +16,23 @@ export function Experience() {
             <p className="experience-company">{experience.company}</p>
             <p className="experience-description">{experience.description}</p>
           </div>
-          <ul>
-            {experience.responsibilities.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
+          <div className="experience-details">
+            <ul>
+              {experience.responsibilities.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+            {experience.projects?.length ? (
+              <nav className="experience-projects" aria-label={`${experience.company} 프로젝트`}>
+                {experience.projects.map((project) => (
+                  <Link href={project.href} key={project.href}>{project.title}<span aria-hidden="true">→</span></Link>
+                ))}
+              </nav>
+            ) : null}
+          </div>
         </Reveal>
       ))}
     </section>
   );
 }
+import Link from "next/link";

@@ -3,12 +3,14 @@ import { describe, expect, it } from "vitest";
 import { experiences } from "./experience";
 
 describe("experiences", () => {
-  it("keeps experience concise and free of project-name lists", () => {
-    expect(experiences.length).toBeGreaterThan(0);
-    for (const experience of experiences) {
-      expect(experience).not.toHaveProperty("projects");
-      expect(experience.responsibilities.length).toBeGreaterThanOrEqual(4);
-    }
+  it("connects the 아이쿠카 experience to its two projects", () => {
+    expect(experiences).toHaveLength(1);
+    expect(experiences[0].company).toBe("아이쿠카");
+    expect(experiences[0].responsibilities.length).toBeGreaterThanOrEqual(4);
+    expect(experiences[0].projects).toEqual([
+      { title: "IQOOCCA Art Gallery", href: "/projects/iqoocca-art-gallery" },
+      { title: "세바사", href: "/projects/sebasa-grandparent" },
+    ]);
   });
 
   it("does not contain forbidden CRM copy", () => {

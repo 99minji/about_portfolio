@@ -4,7 +4,10 @@ export function ProblemSolution({ caseStudy, index }: { caseStudy: ProjectCaseSt
   return (
     <article className="case-study">
       <header>
-        <span>{String(index + 1).padStart(2, "0")}</span>
+        <div className="case-meta">
+          <span>{String(index + 1).padStart(2, "0")}</span>
+          {caseStudy.status === "in-progress" ? <strong>In Progress</strong> : null}
+        </div>
         <h3>{caseStudy.title}</h3>
       </header>
       <div className="case-copy">
@@ -16,6 +19,12 @@ export function ProblemSolution({ caseStudy, index }: { caseStudy: ProjectCaseSt
           <h4>Solution</h4>
           <p>{caseStudy.solution}</p>
         </div>
+        {caseStudy.result ? (
+          <div className="case-result">
+            <h4>Result</h4>
+            <p>{caseStudy.result}</p>
+          </div>
+        ) : null}
       </div>
       <div className="flow-diagram" aria-label={`${caseStudy.title} 구조`}>
         {caseStudy.flow.map((step, stepIndex) => (

@@ -1,11 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { getNextProject } from "@/data/projects";
 import type { Project } from "@/types/portfolio";
 
 import { ProblemSolution } from "./ProblemSolution";
+import { ProjectScreenshotGallery } from "./ProjectScreenshotGallery";
 
 export function ProjectDetail({ project }: { project: Project }) {
+  const nextProject = getNextProject(project);
+
   return (
     <main className="project-detail">
       <section className="detail-hero shell">
@@ -31,6 +35,22 @@ export function ProjectDetail({ project }: { project: Project }) {
         </dl>
       </section>
 
+      {project.metrics?.length ? (
+        <section className="detail-outcomes shell" aria-labelledby="outcomes-heading">
+          <h2 id="outcomes-heading">Key Outcomes</h2>
+          <dl>
+            {project.metrics.map((metric) => (
+              <div key={metric.label}>
+                <dt>{metric.value}</dt>
+                <dd>{metric.label}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+      ) : null}
+
+      {project.screenshots?.length ? <ProjectScreenshotGallery screenshots={project.screenshots} /> : null}
+
       <section className="detail-role shell" aria-labelledby="role-heading">
         <h2 id="role-heading">My Role</h2>
         <ul>
@@ -47,8 +67,8 @@ export function ProjectDetail({ project }: { project: Project }) {
 
       <nav className="detail-footer shell" aria-label="프로젝트 탐색">
         <Link href="/#work">모든 프로젝트 보기</Link>
-        <Link href={`/projects/${project.slug === "iqoocca-art-gallery" ? "reungreung" : "iqoocca-art-gallery"}`}>
-          다음 프로젝트 →
+        <Link href={`/projects/${nextProject.slug}`}>
+          다음 프로젝트 · {nextProject.title} →
         </Link>
       </nav>
     </main>

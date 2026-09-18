@@ -4,46 +4,83 @@ export const projects: Project[] = [
   {
     number: "01",
     slug: "iqoocca-art-gallery",
+    company: "아이쿠카",
+    category: "company",
     title: "IQOOCCA Art Gallery",
-    description: "React Native로 제작한 실서비스 모바일 애플리케이션",
-    detailDescription: "React Native 기반 아동 작품 갤러리 서비스",
-    role: "Frontend Developer",
+    description: "고령 사용자를 위한 아동 작품 감상·후원 앱 신규 구축",
+    detailDescription: "환경과 인증부터 디자인 시스템, 심사·결제 기반까지 설계한 신규 모바일 앱",
+    role: "Frontend Developer · Feature Owner",
     period: "2026",
-    tech: ["React Native", "TypeScript", "React Query", "Zustand"],
+    tech: ["React Native", "Expo", "TypeScript", "TanStack Query", "Zustand", "React Navigation"],
     highlights: [
-      "인증 상태 관리",
-      "작품 피드 구현",
-      "후원 기능",
-      "API 데이터 연동",
-      "환경별 API 설정",
-      "작품 상태에 따른 UI 분기 처리",
+      "개발·운영 빌드 환경과 네트워크 기반 설계",
+      "인증 토큰 수명주기와 상태 관리 구조 구축",
+      "고령 사용자 기준을 반영한 디자인 시스템",
+      "카카오 로그인 네이티브 SDK와 폴백 흐름 연동",
+      "Context API를 선택자 기반 zustand 스토어로 이전",
+      "UGC 심사 요건을 고령 사용자 맥락에 맞게 구현",
+      "코나아이 결제 웹뷰의 호환성과 보안 설정 재검증",
     ],
     overview:
-      "아이들의 작품을 감상하고 응원할 수 있도록 작품 피드와 후원 경험을 연결한 모바일 애플리케이션입니다. 화면 구현뿐 아니라 인증과 서버 상태가 자연스럽게 이어지는 구조를 함께 고민했습니다.",
+      "손주가 그린 작품을 조부모가 감상하고 후원하는 React Native 앱을 새로 구축했습니다. 두 플랫폼의 빌드 환경과 네트워크·인증 기반을 세우고, 60대 이상 사용자의 가독성을 코드로 강제한 디자인 시스템을 만들었습니다. 네이티브 소셜 로그인, 앱 심사 요건, 외부 결제 웹뷰처럼 JS와 플랫폼 설정이 함께 움직이는 경계도 실제 빌드 산출물과 실기기로 검증했습니다.",
     caseStudies: [
       {
-        title: "API 데이터와 UI 책임 분리",
-        problem:
-          "작품 목록과 후원 데이터를 화면 컴포넌트에서 직접 가공하면 렌더링 코드의 책임이 커지고 상태별 화면을 파악하기 어려워질 수 있었습니다.",
-        solution:
-          "React Query가 서버 상태를 담당하고 가공 로직을 기능 단위 훅으로 분리하도록 구성해, 화면 컴포넌트는 로딩·오류·콘텐츠 상태를 표현하는 역할에 집중했습니다.",
-        flow: ["API", "React Query", "Feature Hook", "Artwork List", "Artwork Card"],
+        title: "개발·운영 빌드 환경과 설정 진입점 분리",
+        problem: "iOS scheme과 Android flavor가 서로 다른 방식으로 환경을 선택해 운영 빌드에 개발 서버 주소가 섞일 위험이 있었습니다.",
+        solution: "환경 파일과 플랫폼별 빌드 구성을 1:1로 연결하고, 모든 설정값을 검증·정규화하는 env 모듈 한 곳으로 모았습니다.",
+        result: "명령어나 scheme 선택만으로 환경을 전환하고 누락된 값은 앱 시작 시 즉시 발견하도록 만들었습니다.",
+        flow: ["Build Target", "Environment", "Validation", "App Config"],
       },
       {
-        title: "인증 상태에 따른 화면 흐름 정리",
-        problem:
-          "로그인 여부와 토큰 상태에 따라 접근 가능한 화면과 후원 동작이 달라져, 분기 로직이 여러 화면에 흩어질 가능성이 있었습니다.",
-        solution:
-          "Zustand에서 인증 상태를 일관되게 관리하고 보호가 필요한 동작의 진입 지점을 통일해 화면별 중복 분기를 줄였습니다.",
-        flow: ["Auth State", "Route Guard", "Action Check", "Screen State"],
+        title: "인증 헤더를 책임지는 API 클라이언트 구축",
+        problem: "화면마다 요청을 만들면 서버 주소와 타임아웃, 비표준 인증 형식이 흩어져 누락 시 401 오류가 발생했습니다.",
+        solution: "axios 인스턴스와 요청 인터셉터를 구성해 메모리 토큰을 모든 요청에 같은 형식으로 자동 주입했습니다.",
+        result: "새 API 호출부가 인증 형식을 몰라도 동작하며 변경 지점을 하나의 파일로 제한했습니다.",
+        flow: ["API Call", "Interceptor", "Auth Header", "Server"],
       },
       {
-        title: "작품 상태를 명확한 UI로 전달",
-        problem:
-          "작품의 공개 여부와 후원 가능 상태처럼 데이터 조건이 달라질 때 사용자가 가능한 행동을 바로 이해하기 어려울 수 있었습니다.",
-        solution:
-          "상태 값을 명시적인 UI 변형으로 매핑하고 버튼과 안내 문구를 함께 변경해, 현재 상태와 다음 행동을 한 화면에서 이해하도록 구성했습니다.",
-        flow: ["Artwork Status", "UI Mapping", "Copy + Action", "User Feedback"],
+        title: "로그인 토큰의 메모리·영속 저장 책임 분리",
+        problem: "토큰을 메모리에만 두면 재실행마다 로그인해야 하고, 저장 로직을 화면에 섞으면 저장 키와 수명주기가 분산됐습니다.",
+        solution: "인증 전용 AsyncStorage 모듈에 저장·조회·삭제 함수만 노출하고 앱 시작 시 메모리 토큰과 한 번 동기화했습니다.",
+        result: "저장 키를 한 곳에 고정하고 향후 보안 저장소 교체 범위를 단일 모듈로 제한했습니다.",
+        flow: ["Login", "Secure Boundary", "Restore", "API Memory"],
+      },
+      {
+        title: "카카오 로그인 네이티브 SDK 연동",
+        problem: "RN 0.87 New Architecture에서 플랫폼별 복귀 스킴이 필요했고, 카카오톡은 설치됐지만 계정이 연결되지 않은 기기에서 로그인이 멈췄습니다.",
+        solution: "유지보수되는 SDK를 선택해 iOS·Android 설정을 환경별로 연결하고, 사용자 취소를 제외한 앱 로그인 실패만 웹 로그인으로 폴백했습니다.",
+        result: "실패 기기에서 웹 로그인 복귀까지 검증하고 정상·폴백·취소 세 경로를 단위 테스트로 고정했습니다.",
+        status: "in-progress",
+        flow: ["Native Login", "Failure Check", "Web Fallback", "Normalized User"],
+      },
+      {
+        title: "고령 사용자 기준을 코드화한 디자인 시스템",
+        problem: "색상과 타이포가 화면마다 달랐고 커스텀 폰트 누락이 조용히 시스템 폰트로 대체됐으며, 최소 글자 크기 기준도 문서에만 있었습니다.",
+        solution: "사용 빈도 기반 색상 토큰과 단일 텍스트 진입점을 만들고 16px 미만 글자를 공통 함수에서 자동 보정했습니다.",
+        result: "세 화면의 16px 미만 텍스트를 0개로 만들고 iOS·Android 빌드 산출물의 폰트 포함 여부까지 확인했습니다.",
+        flow: ["Design Tokens", "Text Primitive", "Min Size", "Build Artifact"],
+      },
+      {
+        title: "Context API 상태 관리를 zustand로 이전",
+        problem: "Provider가 네 겹으로 중첩되고 액션만 쓰는 화면도 관련 없는 상태 변경에 함께 다시 렌더링됐습니다.",
+        solution: "단순한 도메인부터 스토어를 옮기고 선택자 훅으로 구독 범위를 값·액션 단위로 좁혔습니다.",
+        result: "Provider 중첩을 4겹에서 0으로 줄이고 120줄을 덜어냈으며 테스트 상태 주입도 단순화했습니다.",
+        flow: ["Context", "Domain Store", "Selector", "Focused Render"],
+      },
+      {
+        title: "앱스토어 UGC 심사 요건을 사용자 부담 없이 구현",
+        problem: "신고 수단은 심사에 필수였지만 연결된 손주 그림만 보는 고령 사용자에게 신고라는 표현과 긴 입력은 부담이었습니다.",
+        solution: "기능 범위를 심사 대응으로 한정하고 기존 규격의 사유를 도메인에 맞춰 줄인 뒤 문제 알리기 흐름과 즉시 가리기를 구현했습니다.",
+        result: "사유 선택 한 번으로 접수가 끝나는 2탭 흐름을 만들고 미확정 서버 처리 범위는 별도 한계로 기록했습니다.",
+        flow: ["Review Rule", "Reason Select", "Submit", "Hide Content"],
+      },
+      {
+        title: "코나아이 결제 웹뷰 기반 이식과 재검증",
+        problem: "RN 버전이 다른 레거시 앱의 로컬 tarball과 광범위한 보안 설정을 그대로 복사하면 호환성과 누락을 확인할 수 없었습니다.",
+        solution: "패키지 내부와 WebView prop을 버전별로 대조하고 플랫폼 산출물, 앱 가시성, cleartext 범위를 실제 빌드에서 검증했습니다.",
+        result: "양 플랫폼 빌드와 네이티브 등록을 확인하고 Android 설정 누락을 보완했으며 운영 HTTP 허용 범위를 줄였습니다.",
+        status: "in-progress",
+        flow: ["Legacy Audit", "Compatibility", "Native Build", "Secure WebView"],
       },
     ],
     image: {
@@ -54,49 +91,182 @@ export const projects: Project[] = [
   },
   {
     number: "02",
-    slug: "reungreung",
-    title: "릉릉",
-    description: "경주 여행을 위한 도보 중심 여행 계획 서비스",
-    detailDescription: "위치와 이동 시간을 연결하는 경주 도보 여행 플래너",
-    role: "Personal Project",
+    slug: "sebasa-grandparent",
+    company: "아이쿠카",
+    category: "company",
+    title: "세바사",
+    description: "운영 앱에 조부모 역할과 작품 후원 흐름을 확장한 프로젝트",
+    detailDescription: "기존 부모·자녀 경험을 보존하며 세 번째 역할과 후원 여정을 편입한 운영 앱 확장",
+    role: "Frontend Developer · Feature Owner",
     period: "2026",
-    tech: ["React Native", "Expo", "Kakao Maps", "Open API", "React Query", "Zustand"],
+    tech: ["React Native", "TypeScript", "React Query", "Zustand", "React Navigation", "WebView"],
     highlights: [
-      "한국관광공사 API 연동",
-      "위치 기반 관광지 탐색",
-      "지도 기반 탐색",
-      "카테고리 필터",
-      "기상청 날씨 데이터 연동",
-      "여행 장소 담기",
-      "순서 편집 및 시간표 구성",
-      "도보 시간 및 거리 표시",
+      "운영 앱에 조부모 역할과 17개 화면 확장",
+      "후원 관문 판정 로직과 14개 단위 테스트 설계",
+      "AI 생성 결과의 폴링·캐시·타임아웃 처리",
+      "기존 결제 웹뷰 재사용과 복귀 흐름 설계",
+      "비가역 동작과 모호한 서버 응답의 UX 결정",
     ],
     overview:
-      "경주의 관광지를 위치와 카테고리로 탐색하고, 가고 싶은 장소를 담아 도보 이동 중심의 일정으로 정리하는 개인 프로젝트입니다. 여러 공공 데이터와 지도 정보를 하나의 계획 흐름으로 연결했습니다.",
+      "부모와 자녀만 가정한 운영 앱에 조부모 역할을 추가했습니다. 기존 사용자 흐름을 기본값으로 보존하면서 가입, 손주 연결, 작품 감상, AI 도슨트, 충전과 후원 송금까지 17개 화면을 확장했습니다. 여러 API 상태가 얽힌 관문은 순수 함수와 테스트로 분리하고, 외부 웹뷰와 비가역 동작은 사용자가 하던 일을 잃지 않는 방향으로 연결했습니다.",
+    metrics: [
+      { value: "53", label: "세바사 관련 커밋" },
+      { value: "17", label: "구현 페이지" },
+      { value: "18", label: "구현 컴포넌트" },
+      { value: "14", label: "후원 관문 단위 테스트" },
+    ],
     caseStudies: [
       {
-        title: "서로 다른 공공 데이터의 화면 모델 통합",
-        problem:
-          "관광지와 날씨 데이터는 제공 형식과 갱신 주기가 달라 화면에서 직접 조합할 경우 로딩과 오류 처리가 복잡해질 수 있었습니다.",
-        solution:
-          "API별 요청과 변환 단계를 분리하고 화면에서 사용하는 공통 형태로 정규화해 탐색 화면이 데이터 출처보다 사용자 흐름에 집중하도록 구성했습니다.",
-        flow: ["Open APIs", "Query Layer", "Data Mapper", "Explore Screen"],
+        title: "운영 앱에 세 번째 역할 확장",
+        problem: "부모와 자녀만 가정한 5년 된 운영 앱에서 조부모가 모든 `부모 아니면 자녀` 분기의 자녀 경로로 떨어져 로그인, 비밀번호, 탈퇴 흐름이 끝단에서 막혔습니다.",
+        solution: "조부모를 부모와 같은 갈래로 묶되 맞지 않는 조건은 도메인 규칙을 백엔드에 확인해 제거했습니다. 기존 부모·자녀 경로를 기본값으로 유지하며 화면과 네비게이션을 확장했습니다.",
+        result: "가입·손주 연결·그림 감상·충전·후원 송금의 전체 흐름을 검증했고 기존 부모·자녀 회귀는 0건이었습니다.",
+        flow: ["Existing Roles", "Grandparent Rule", "Navigation", "End-to-End Flow"],
       },
       {
-        title: "지도 탐색과 목록 필터의 상태 동기화",
-        problem:
-          "지도 영역, 현재 위치, 카테고리 필터가 동시에 바뀌면 지도와 목록이 서로 다른 결과를 보여줄 수 있었습니다.",
-        solution:
-          "탐색 조건을 하나의 상태 모델로 관리하고 조건이 바뀔 때 동일한 쿼리 키와 필터 기준을 사용해 지도와 목록의 결과를 맞췄습니다.",
-        flow: ["Map Bounds", "Category", "Search State", "Places Result"],
+        title: "후원 관문 판정 로직과 테스트 설계",
+        problem: "계좌 등록, 충전, 간편 비밀번호, 후원의 네 관문이 서로 다른 API 상태에 걸려 있어 화면 안의 조건문만으로는 경계 조합을 재현하기 어려웠습니다.",
+        solution: "입력 네 개로 관문 배열을 만드는 순수 함수와 다음 단계·부족 금액 계산을 분리했습니다. 선택 금액 유무에 따라 충전 판정 기준도 달리했습니다.",
+        result: "2개 스위트의 단위 테스트 14개로 조합을 고정했고, 판정 기준을 바꿀 때 화면 코드는 수정하지 않았습니다.",
+        flow: ["Account", "Balance", "PIN", "Support"],
       },
       {
-        title: "장소 목록을 실제 이동 일정으로 전환",
-        problem:
-          "장소를 담는 기능만으로는 사용자가 방문 순서와 이동 시간을 판단하기 어려웠습니다.",
-        solution:
-          "장소 순서를 직접 편집할 수 있게 하고 구간별 도보 시간과 거리를 함께 표시해, 선택한 장소가 바로 실행 가능한 시간표가 되도록 설계했습니다.",
-        flow: ["Saved Places", "Reorder", "Walking Time", "Trip Schedule"],
+        title: "상태가 다른 AI API의 대기 경험 설계",
+        problem: "AI 도슨트와 추천 문구 생성에는 약 10초가 걸리지만 도슨트만 상태를 제공하고 추천 문구는 빈 배열만 반환해 생성 중·실패·없음을 구분할 수 없었습니다.",
+        solution: "도슨트는 상태 기반 폴링을 목록 레벨에서 유지하고 결과를 캐시에 썼습니다. 상태 없는 추천 문구는 30초까지만 재조회하며 기본 문구를 항상 제공했습니다.",
+        result: "모달을 닫아도 생성이 이어지고 재진입 시 완료 결과가 즉시 보입니다. 상태 없는 API에서도 무한 폴링을 차단했으며 30초 제한의 한계를 문서화했습니다.",
+        flow: ["Generate", "Conditional Poll", "Cache", "Fallback Copy"],
+      },
+      {
+        title: "기존 결제 웹뷰 재사용과 후원 흐름 복귀",
+        problem: "부모용 결제 웹뷰는 충전 후 홈으로 이동해, 조부모가 후원 도중 충전하면 하던 작업이 사라졌습니다.",
+        solution: "검증된 출금 계좌 방식을 재사용하고 웹뷰에 선택적 복귀 화면을 전달했습니다. 기존 사용자는 기본값인 홈으로 두고, 부족분을 채우는 최소 정액을 미리 선택했습니다.",
+        result: "후원→충전→후원 흐름이 끊기지 않고 이어지며 기존 부모·자녀 충전 흐름은 변경하지 않았습니다.",
+        flow: ["Support", "Charge WebView", "Return Target", "Resume Support"],
+      },
+      {
+        title: "비가역 동작과 모호한 서버 응답의 UX 결정",
+        problem: "손주 연결 해제는 되돌릴 수 없지만 서버는 연결 없음, 이미 해제, 권한 없음을 모두 404로 응답해 사용자가 원하는 상태가 이미 된 경우에도 오류가 표시됐습니다.",
+        solution: "화면상 권한 없는 경로가 없음을 확인하고 404를 성공으로 처리했습니다. 해제 결과를 사전에 설명하고 버튼을 시각적으로 약화했으며, 계좌 안내는 방해 팝업 대신 배너로 제공했습니다.",
+        result: "오조작 경로와 반복 클릭을 줄이고 판단 근거를 코드와 기획 문서에 남겼습니다. 404 의미 분리와 비속어 목록 서버 이전은 한계로 명시했습니다.",
+        flow: ["Confirm Impact", "Disconnect", "Ambiguous 404", "Desired State"],
+      },
+    ],
+    image: {
+      src: "/images/projects/iqoocca-art-gallery.png",
+      alt: "세바사 조부모 작품 후원 기능을 표현한 에디토리얼 이미지",
+    },
+    accent: "moss",
+  },
+  {
+    number: "03",
+    slug: "reungreung",
+    category: "independent",
+    title: "릉릉",
+    description: "날씨와 위치 데이터를 활용한 경주 관광 탐색 서비스",
+    detailDescription: "공공 데이터를 검증해 여행 맥락으로 연결한 경주 관광 앱",
+    role: "Frontend Developer · Team Project",
+    period: "2026",
+    tech: ["React Native", "Expo", "TypeScript", "Expo Router", "Zustand", "React Query"],
+    highlights: [
+      "앱 진입 가드와 온보딩 플로우 설계",
+      "zustand 상태 영속화와 OS 권한 상태 분리",
+      "날씨 기반 실내·실외 추천 정렬",
+      "공공 API 데이터 커버리지 실측",
+      "API 응답 규격 검증과 예외 처리",
+      "상세 화면 로딩 경험 개선",
+      "디자인 토큰 기반 온보딩 UI 구현",
+      "실기기 로그 기반 네이티브 크래시 해결",
+    ],
+    overview:
+      "한국관광콘텐츠 공모전을 위해 만든 팀 프로젝트입니다. 앱 진입과 온보딩 상태를 설계하고, 관광·날씨 데이터를 직접 검증해 추천 규칙을 세웠습니다. 화면 구현에 그치지 않고 API의 누락과 응답 규격 차이, 로딩 상태, 특정 조건의 네이티브 크래시까지 재현과 측정을 통해 해결했습니다.",
+    // metrics: [
+    //   { value: "15 → 33", label: "반경 1km 장소 노출" },
+    //   { value: "477", label: "분류 데이터 검증" },
+    //   { value: "0", label: "상세 진입 추가 요청" },
+    //   { value: "100% → 0", label: "특정 조건 크래시" },
+    // ],
+    screenshots: [
+      {
+        src: "/images/screens/onestore_guide_01.png",
+        alt: "날씨와 도보 거리를 함께 보여주는 릉릉의 장소 탐색 화면",
+        title: "날씨 기반 장소 탐색",
+        caption: "현재 위치 주변의 장소를 날씨, 거리, 장소 유형과 함께 비교합니다.",
+      },
+      {
+        src: "/images/screens/onestore_guide_02.png",
+        alt: "천마총 정보와 오디오 가이드를 제공하는 릉릉 장소 상세 화면",
+        title: "장소 상세와 오디오 가이드",
+        caption: "장소 정보와 도보 거리, 문화 해설 오디오를 한 화면에서 제공합니다.",
+      },
+      {
+        src: "/images/screens/onestore_guide_03.png",
+        alt: "경주 관광지를 지도 위에서 탐색하는 릉릉 지도 화면",
+        title: "지도 탐색",
+        caption: "카테고리별 관광지를 현재 위치와 함께 지도에서 탐색합니다.",
+      },
+      {
+        src: "/images/screens/onestore_guide_04.png",
+        alt: "담은 장소의 방문 순서와 도보 시간을 편집하는 릉릉 시간표 화면",
+        title: "시간표 편집",
+        caption: "담은 장소의 순서를 바꾸고 구간별 도보 시간과 거리를 확인합니다.",
+      },
+      {
+        src: "/images/screens/onestore_guide_05.png",
+        alt: "저장한 장소의 방문 순서와 전체 동선을 보여주는 릉릉 지도 화면",
+        title: "여행 동선 확인",
+        caption: "시간표에 담은 순서와 전체 이동 거리, 경로를 지도에서 확인합니다.",
+      },
+    ],
+    caseStudies: [
+      {
+        title: "앱 진입 가드와 온보딩 상태 설계",
+        problem: "앱 시작 시 언어 선택, 위치정보 동의, GPS 권한을 순서대로 확인해야 했습니다. 영속 저장값이 복원되기 전에 분기하거나 OS에서 바뀐 권한을 저장값만으로 판단하면 잘못된 화면으로 진입할 수 있었습니다.",
+        solution: "언어·동의·완료 상태는 zustand persist로 저장하고 GPS 권한은 메모리에만 두어 OS를 항상 기준으로 삼았습니다. persist 복원과 현재 권한 조회가 모두 끝난 뒤 순수 함수로 첫 미완료 단계를 결정했습니다.",
+        result: "저장값과 실제 권한의 불일치, 복원 전 오판으로 인한 잘못된 화면 진입을 구조적으로 차단하고 조건 조합을 UI 없이 테스트할 수 있게 했습니다.",
+        flow: ["Rehydrate", "OS Permission", "Pure Guard", "First Step"],
+      },
+      {
+        title: "날씨 기반 실내·실외 추천 정렬",
+        problem: "비가 오면 실내 장소를 먼저 보여주려 했지만 관광공사 contentTypeId 하나에 실내와 야외 시설이 섞여 있어 신뢰할 수 있는 판정 기준이 없었습니다.",
+        solution: "경주 전체 477건을 실측해 분류체계 코드의 채움률이 100%임을 확인했습니다. 대분류 중심의 규칙과 판정불가 unknown을 두고, 비가 와도 장소를 제거하지 않고 우선순위만 바꾸도록 구현했습니다.",
+        result: "반경 1km의 111건을 실내 87·야외 19·판정불가 5건으로 분류했습니다. 카테고리 4종을 한 번에 병합해 전환 시 추가 네트워크 요청도 없앴습니다.",
+        flow: ["Weather", "Classification", "Priority Sort", "Places"],
+      },
+      {
+        title: "위치기반 API의 57% 누락 규명",
+        problem: "위치기반 API로 조회한 목록에서 첨성대와 월정교 등 핵심 관광지가 빠졌고, 파라미터 문제인지 서버 데이터 문제인지 근거가 없었습니다.",
+        solution: "같은 조건에서 지역기반 477건과 위치기반 216건을 비교하고 modifiedtime 분포와 특정 좌표 200m 재조회로 위치 인덱스의 갱신 결함을 확인했습니다. 지역기반 결과를 Haversine 거리로 필터링하는 방식을 채택했습니다.",
+        result: "반경 1km 장소 노출이 15건에서 33건으로 늘었고, 57% 누락과 약 293KB의 전체 응답 비용을 문서화해 API 선택 근거를 남겼습니다.",
+        flow: ["API Compare", "Index Diagnosis", "Area Query", "Distance Filter"],
+      },
+      {
+        title: "공공 API 정상 응답 오판정 수정",
+        problem: "날씨 배너가 표시되지 않았습니다. 공공 API가 HTTP 200 안에 결과 코드를 담아 보내는데, 관광공사 정상 코드인 0000으로 기상청 응답까지 검사해 정상 코드 00을 오류로 처리하고 있었습니다.",
+        solution: "실제 응답을 확인해 두 정상 규격을 구분하고, axios 인터셉터에서 본문 실패를 경고하도록 했습니다. 인증키를 마스킹하고 응답 시간과 건수를 함께 기록했으며 실황 갱신 주기에 맞춰 캐시를 1시간으로 설정했습니다.",
+        result: "날씨 배너와 강수 형태별 문구가 정상 표시됐고, HTTP 상태만으로 놓치던 본문 오류를 로그에서 즉시 구분할 수 있게 됐습니다.",
+        flow: ["HTTP 200", "Body Code", "Spec Mapping", "Weather UI"],
+      },
+      {
+        title: "상세 화면의 잘못된 빈 상태 제거",
+        problem: "장소 상세 진입 직후 실제 정보가 있는데도 잠시 '정보 없음'이 노출됐습니다. 세 API 모두 100ms대여서 네트워크 속도보다 로딩 중 undefined를 빈 값으로 취급한 상태 설계가 원인이었습니다.",
+        solution: "목록이 이미 가진 제목·주소·좌표·이미지를 라우트 파라미터로 전달하고, 조회 중에는 스켈레톤을 표시한 뒤 조회가 끝나 비어 있을 때만 '정보 없음'을 보여주도록 분리했습니다.",
+        result: "추가 네트워크 요청 0건으로 첫 프레임부터 핵심 정보를 표시하고, 23px 스켈레톤으로 로딩 전후 레이아웃 이동도 줄였습니다.",
+        flow: ["List Data", "Route Params", "Skeleton", "Detail Data"],
+      },
+      {
+        title: "온보딩 3개 화면의 디자인 시스템 적용",
+        problem: "온보딩 화면마다 색상·여백·제목 크기가 달랐고 기본 버튼과 하드코딩 색상이 브랜드 화면과 어울리지 않아 단계 전환 시 레이아웃이 흔들렸습니다.",
+        solution: "진행 표시·제목·본문·CTA로 구성된 공통 셸을 만들고 색상, 간격, 타이포를 디자인 토큰으로 교체했습니다. 선택 상태는 테두리 두께 대신 색으로 구분해 레이아웃 변화를 막았습니다.",
+        result: "세 화면이 하나의 골격을 공유하고 하드코딩 색상을 0개로 만들었습니다. 실제 위치정보 저장 구조를 근거로 동의 안내 문구도 정리했습니다.",
+        flow: ["Shared Shell", "Design Tokens", "Screen Content", "Stable Layout"],
+      },
+      {
+        title: "특정 언어에서 발생한 네이티브 크래시 해결",
+        problem: "한국어가 아닌 언어에서 상태 초기화 버튼을 누르면 앱이 100% 종료됐습니다. 상태 초기화로 헤더가 다시 렌더되는 순간 같은 프레임에서 화면 스택도 해체돼 react-native-screens 네이티브 예외가 발생했습니다.",
+        solution: "adb logcat으로 JS 오류가 아닌 네이티브 예외임을 확인했습니다. 지연 API로 우회하지 않고 초기화 시 언어를 폴백으로 되돌리지 않도록 동기화 조건을 바꿔 위험한 동시 렌더 자체를 없앴습니다.",
+        result: "실기기 동일 절차에서 크래시가 100% 재현에서 0건으로 줄었고, 타이머와 deprecated API 없이 해결했습니다. 타입 오류 1건과 다국어 리소스 키 불일치도 0건으로 정리했습니다.",
+        flow: ["Reproduce", "Native Log", "Render Timing", "Stable Reset"],
       },
     ],
     image: {
@@ -109,4 +279,9 @@ export const projects: Project[] = [
 
 export function getProjectBySlug(slug: string) {
   return projects.find((project) => project.slug === slug);
+}
+
+export function getNextProject(project: Project) {
+  const index = projects.findIndex(({ slug }) => slug === project.slug);
+  return projects[(index + 1) % projects.length];
 }
