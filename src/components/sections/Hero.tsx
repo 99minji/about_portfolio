@@ -5,11 +5,11 @@ export function Hero() {
     <section className="hero shell" aria-labelledby="hero-title">
       <div className="hero-copy">
         <h1 id="hero-title">
-          UI를 구현하는 것에서 시작해
+          사용자가 마주하는 화면부터
           <br />
-          서비스를 만드는 개발자로
+          서비스가 동작하는 흐름까지
           <br />
-          확장하고 있습니다.
+          고민하며 개발합니다.
         </h1>
         <p className="hero-intro">
           Frontend Developer
@@ -23,7 +23,7 @@ export function Hero() {
       </div>
       <div className="hero-signature" aria-hidden="true">
         <span>01</span>
-        <p>Interfaces that connect people, data, and thoughtful decisions.</p>
+        <p>Interfaces that connect users, data, and meaningful interactions.</p>
       </div>
     </section>
   );

@@ -10,43 +10,63 @@ vi.mock("next/navigation", () => ({
 import ProjectPage, { generateMetadata, generateStaticParams } from "./page";
 
 describe("project detail route", () => {
-  it("generates all three project routes", () => {
+  it("generates every project route", () => {
     expect(generateStaticParams()).toEqual([
-      { slug: "iqoocca-art-gallery" },
-      { slug: "sebasa-grandparent" },
+      { slug: "iqoocca-community" },
+      { slug: "sebasa" },
+      { slug: "iqoocca-backoffice" },
       { slug: "reungreung" },
     ]);
   });
 
   it("renders a known project with its case studies", async () => {
-    render(await ProjectPage({ params: Promise.resolve({ slug: "iqoocca-art-gallery" }) }));
-    expect(screen.getByRole("heading", { name: "IQOOCCA Art Gallery" })).toBeInTheDocument();
+    render(await ProjectPage({ params: Promise.resolve({ slug: "sebasa" }) }));
+    expect(screen.getByRole("heading", { name: "세바사 - 세상을 바꾸는 사장님" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "Problem & Solution" })).toBeInTheDocument();
     expect(screen.getAllByText("Problem").length).toBeGreaterThanOrEqual(2);
     expect(screen.getAllByText("Solution").length).toBeGreaterThanOrEqual(2);
   });
 
-  it("keeps only the in-progress work and no Sebasa metrics on IQOOCCA", async () => {
-    render(await ProjectPage({ params: Promise.resolve({ slug: "iqoocca-art-gallery" }) }));
+  it("renders the merged Sebasa outcomes and links to reungreung next", async () => {
+    render(await ProjectPage({ params: Promise.resolve({ slug: "sebasa" }) }));
 
-    expect(screen.getAllByText("In Progress")).toHaveLength(2);
-    expect(screen.queryByText("53")).not.toBeInTheDocument();
+    expect(screen.getAllByText("In Progress")).toHaveLength(1);
+    expect(screen.getByText("53")).toBeInTheDocument();
+    expect(screen.getAllByText("Result")).toHaveLength(6);
     expect(screen.getByRole("link", { name: /다음 프로젝트/ })).toHaveAttribute(
       "href",
-      "/projects/sebasa-grandparent",
+      "/projects/iqoocca-backoffice",
     );
   });
 
-  it("renders Sebasa outcomes and links to reungreung next", async () => {
-    render(await ProjectPage({ params: Promise.resolve({ slug: "sebasa-grandparent" }) }));
+  it("renders the backoffice migration without in-progress markers", async () => {
+    render(await ProjectPage({ params: Promise.resolve({ slug: "iqoocca-backoffice" }) }));
 
-    expect(screen.getByRole("heading", { name: "세바사" })).toBeInTheDocument();
-    expect(screen.getByText("53")).toBeInTheDocument();
-    expect(screen.getAllByText("Result")).toHaveLength(5);
+    expect(screen.getByRole("heading", { name: "백오피스 V2 이관" })).toBeInTheDocument();
+    expect(screen.queryByText("In Progress")).not.toBeInTheDocument();
+    expect(screen.getByText("16 → 19")).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /다음 프로젝트/ })).toHaveAttribute(
       "href",
       "/projects/reungreung",
     );
+  });
+
+  it("renders the community project outcomes", async () => {
+    render(await ProjectPage({ params: Promise.resolve({ slug: "iqoocca-community" }) }));
+
+    expect(screen.getByRole("heading", { name: "커뮤니티" })).toBeInTheDocument();
+    expect(screen.getByText("304")).toBeInTheDocument();
+    expect(screen.getAllByText("Result")).toHaveLength(6);
+    expect(screen.getByRole("link", { name: /다음 프로젝트/ })).toHaveAttribute(
+      "href",
+      "/projects/sebasa",
+    );
+  });
+
+  it("no longer serves the split IQOOCCA route", async () => {
+    await expect(
+      ProjectPage({ params: Promise.resolve({ slug: "iqoocca-art-gallery" }) }),
+    ).rejects.toThrow("NEXT_NOT_FOUND");
   });
 
   it("creates project-specific metadata", async () => {

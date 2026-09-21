@@ -24,9 +24,15 @@ export function Experience() {
             </ul>
             {experience.projects?.length ? (
               <nav className="experience-projects" aria-label={`${experience.company} 프로젝트`}>
-                {experience.projects.map((project) => (
-                  <Link href={project.href} key={project.href}>{project.title}<span aria-hidden="true">→</span></Link>
-                ))}
+                {experience.projects.map((project) =>
+                  project.href.startsWith("http") ? (
+                    <a href={project.href} key={project.href} target="_blank" rel="noreferrer">
+                      {project.title}<span aria-hidden="true">↗</span>
+                    </a>
+                  ) : (
+                    <Link href={project.href} key={project.href}>{project.title}<span aria-hidden="true">→</span></Link>
+                  ),
+                )}
               </nav>
             ) : null}
           </div>

@@ -17,7 +17,7 @@ function ProjectGroup({ title, projects }: { title: string; projects: Project[] 
           {projects[0].category === "company" ? (
             <span>회사에서 수행한 프로젝트</span>
           ) : (
-            <span>직접 기획하고 검증한 작업</span>
+            <span>기획부터 구현까지 A-Z를 직접 경험한 프로젝트</span>
           )}
         </div>
       </Reveal>
@@ -39,11 +39,11 @@ export function SelectedWork() {
   return (
     <section className="work-section shell" id="work">
       <Reveal>
-        <SectionHeading title="Selected Work" description="제가 직접 고민하고 만든 작업들입니다." />
+        <SectionHeading title="Selected Work" description="사용자의 흐름과 서비스의 구조를 고민하며 만든 프로젝트입니다." />
       </Reveal>
       <div className="project-groups">
         <ProjectGroup title="아이쿠카 · Frontend Developer" projects={companyProjects} />
-        <ProjectGroup title="Independent Project" projects={independentProjects} />
+        <ProjectGroup title="Competition Project" projects={independentProjects} />
       </div>
     </section>
   );
