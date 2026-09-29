@@ -31,9 +31,29 @@ export function ProjectDetail({ project }: { project: Project }) {
         <dl>
           <div><dt>Role</dt><dd>{project.role}</dd></div>
           <div><dt>Period</dt><dd>{project.period}</dd></div>
+          {project.releaseStatus ? <div><dt>Release Status</dt><dd>{project.releaseStatus}</dd></div> : null}
+          {project.aiWorkflow ? <div><dt>AI Workflow</dt><dd>{project.aiWorkflow}</dd></div> : null}
           <div><dt>Tech</dt><dd>{project.tech.join(" · ")}</dd></div>
+          {project.externalLinks?.length ? (
+            <div>
+              <dt>Public Links</dt>
+              <dd className="project-external-links">
+                {project.externalLinks.map((link) => (
+                  <a href={link.href} key={link.href} target="_blank" rel="noreferrer">
+                    {link.label}<span aria-hidden="true">↗</span>
+                  </a>
+                ))}
+              </dd>
+            </div>
+          ) : null}
         </dl>
       </section>
+
+      {project.company ? (
+        <p className="project-disclosure shell">
+          © IQOOCCA Inc. · 화면은 공개 서비스 또는 익명화된 재현 화면입니다.
+        </p>
+      ) : null}
 
       {project.metrics?.length ? (
         <section className="detail-outcomes shell" aria-labelledby="outcomes-heading">

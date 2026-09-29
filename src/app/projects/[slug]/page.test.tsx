@@ -37,6 +37,8 @@ describe("project detail route", () => {
       "href",
       "/projects/iqoocca-backoffice",
     );
+    expect(screen.getByText("출시 준비 단계")).toBeInTheDocument();
+    expect(screen.getByText("Claude Code · 명세 기반 구현 · 단위 테스트 및 실기기 검증")).toBeInTheDocument();
   });
 
   it("renders the backoffice migration without in-progress markers", async () => {
@@ -61,6 +63,15 @@ describe("project detail route", () => {
       "href",
       "/projects/sebasa",
     );
+    expect(screen.getByRole("link", { name: "아이쿠카 공식 웹사이트" })).toHaveAttribute(
+      "href",
+      "https://www.iqoocca.ai/",
+    );
+    expect(screen.getByRole("link", { name: "App Store에서 아이쿠카 보기" })).toHaveAttribute(
+      "target",
+      "_blank",
+    );
+    expect(screen.getByText(/공개 서비스 또는 익명화된 재현 화면/)).toBeInTheDocument();
   });
 
   it("no longer serves the split IQOOCCA route", async () => {

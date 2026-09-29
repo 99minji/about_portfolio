@@ -3,6 +3,11 @@ export interface ProjectImage {
   alt: string;
 }
 
+export interface ProjectExternalLink {
+  label: string;
+  href: string;
+}
+
 export interface ProjectCaseStudy {
   title: string;
   problem: string;
@@ -35,6 +40,8 @@ export interface Project {
   detailDescription: string;
   role: string;
   period: string;
+  aiWorkflow?: string;
+  releaseStatus?: string;
   tech: string[];
   highlights: string[];
   overview: string;
@@ -42,6 +49,8 @@ export interface Project {
   screenshots?: ProjectScreenshot[];
   caseStudies: ProjectCaseStudy[];
   image: ProjectImage;
+  visualLabel?: string;
+  externalLinks?: ProjectExternalLink[];
   accent: "moss" | "sand";
 }
 

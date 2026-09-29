@@ -116,6 +116,40 @@ describe("projects", () => {
     ]);
   });
 
+  it("connects every 아이쿠카 project to the public company and App Store pages", () => {
+    const companyProjects = projects.filter(({ company }) => company === "아이쿠카");
+
+    expect(companyProjects).toHaveLength(3);
+    for (const project of companyProjects) {
+      expect(project.externalLinks).toEqual([
+        { label: "아이쿠카 공식 웹사이트", href: "https://www.iqoocca.ai/" },
+        {
+          label: "App Store에서 아이쿠카 보기",
+          href: "https://apps.apple.com/kr/app/%EC%95%84%EC%9D%B4%EC%BF%A0%EC%B9%B4/id1500709264",
+        },
+      ]);
+      expect(project.visualLabel).toBeTruthy();
+    }
+
+    expect(getProjectBySlug("reungreung")?.externalLinks).toBeUndefined();
+  });
+
+  it("records verified Claude Code workflows and release states without claiming direct LLM integration", () => {
+    const sebasa = getProjectBySlug("sebasa");
+    const backoffice = getProjectBySlug("iqoocca-backoffice");
+    const reungreung = getProjectBySlug("reungreung");
+
+    expect(sebasa?.aiWorkflow).toContain("Claude Code");
+    expect(sebasa?.releaseStatus).toBe("출시 준비 단계");
+    expect(sebasa?.caseStudies[3].solution).toContain("백엔드가 제공한 AI 생성 API");
+    expect(backoffice?.aiWorkflow).toContain("Claude Code");
+    expect(backoffice?.releaseStatus).toBe("이관 개발 완료 · 운영 배포 전");
+    expect(reungreung?.aiWorkflow).toContain("Claude Code");
+    expect(reungreung?.releaseStatus).toBe("앱 출시 완료");
+
+    expect(JSON.stringify([sebasa, backoffice, reungreung])).not.toContain("LLM API 직접");
+  });
+
   it("does not contain fabricated or forbidden project content", () => {
     const content = JSON.stringify(projects);
     expect(content).not.toContain("WeSeed");

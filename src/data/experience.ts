@@ -14,6 +14,7 @@ export const experiences: Experience[] = [
       "앱스토어 UGC 심사 요건 대응과 신고·가리기 흐름 구현",
       "외부 결제 웹뷰·AI 생성 상태·비가역 동작의 UX 설계",
       "레거시 관리자 웹의 React 19·TanStack 스택 이관",
+      "Claude Code를 활용한 명세 기반 구현과 테스트·타입·실기기 검증",
     ],
     projects: [
       { title: "커뮤니티", href: "/projects/iqoocca-community" },

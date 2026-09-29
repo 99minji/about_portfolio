@@ -34,6 +34,7 @@ describe("Home", () => {
     expect(screen.getByRole("heading", { name: "세바사 - 세상을 바꾸는 사장님" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "릉릉" })).toBeInTheDocument();
     expect(screen.queryByRole("heading", { name: "IQOOCCA Art Gallery" })).not.toBeInTheDocument();
+    expect(screen.getAllByText("IQOOCCA · COMPANY PROJECT")).toHaveLength(3);
   });
 
   it("links the 아이쿠카 experience to its merged company project", () => {
@@ -70,5 +71,12 @@ describe("Home", () => {
     expect(container.textContent).not.toMatch(
       /WeSeed|Coming Soon|Placeholder|롯데글로벌로지스 CRM|B2B 서비스와 CRM 제품/,
     );
+  });
+
+  it("presents AI-assisted development as a verified engineering skill", () => {
+    render(<Home />);
+
+    expect(screen.getByRole("heading", { name: "AI-assisted Development" })).toBeInTheDocument();
+    expect(screen.getByText(/Claude Code · 명세 기반 구현 · 테스트 작성 · 코드 검증 · 배포 검증/)).toBeInTheDocument();
   });
 });

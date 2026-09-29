@@ -20,8 +20,21 @@ export function ProjectListItem({ project }: { project: Project }) {
           View Project <span aria-hidden="true">→</span>
         </Link>
       </div>
-      <Link className={`project-visual project-visual--${project.accent}`} href={`/projects/${project.slug}`} tabIndex={-1} aria-hidden="true">
-        <Image src={project.image.src} alt="" width={1120} height={760} sizes="(max-width: 800px) 100vw, 58vw" />
+      <Link
+        className={`project-visual project-visual--${project.accent}${project.company ? " project-visual--company" : ""}`}
+        href={`/projects/${project.slug}`}
+        tabIndex={-1}
+        aria-hidden="true"
+      >
+        {project.company ? (
+          <div className="project-visual-brand">
+            <span>IQOOCCA · COMPANY PROJECT</span>
+            <strong>{project.visualLabel}</strong>
+          </div>
+        ) : null}
+        <div className="project-visual-media">
+          <Image src={project.image.src} alt="" width={1120} height={760} sizes="(max-width: 800px) 100vw, 58vw" />
+        </div>
       </Link>
     </article>
   );

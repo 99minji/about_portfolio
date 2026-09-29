@@ -1,5 +1,13 @@
 import type { Project } from "@/types/portfolio";
 
+const iqooccaExternalLinks = [
+  { label: "아이쿠카 공식 웹사이트", href: "https://www.iqoocca.ai/" },
+  {
+    label: "App Store에서 아이쿠카 보기",
+    href: "https://apps.apple.com/kr/app/%EC%95%84%EC%9D%B4%EC%BF%A0%EC%B9%B4/id1500709264",
+  },
+];
+
 export const projects: Project[] = [
   {
     number: "01",
@@ -77,6 +85,8 @@ export const projects: Project[] = [
       src: "/images/projects/iqoocca-community.png",
       alt: "학부모 커뮤니티의 게시글과 동네 인증 흐름을 표현한 에디토리얼 이미지",
     },
+    visualLabel: "COMMUNITY · 35 SCREENS",
+    externalLinks: iqooccaExternalLinks,
     accent: "moss",
   },
   {
@@ -89,8 +99,11 @@ export const projects: Project[] = [
     detailDescription: "기존 부모·자녀 경험을 보존하며 세 번째 역할과 후원 여정을 편입한 프로젝트",
     role: "Frontend Developer · Feature Owner",
     period: "2026",
+    releaseStatus: "출시 준비 단계",
+    aiWorkflow: "Claude Code · 명세 기반 구현 · 단위 테스트 및 실기기 검증",
     tech: ["React Native", "TypeScript", "React Query", "Zustand", "React Navigation", "WebView"],
     highlights: [
+      "Claude Code로 명세 기반 구현 후 테스트·타입 검사·실기기 검증",
       "운영 앱에 조부모 역할과 17개 화면 확장",
       "후원 관문 판정 로직과 14개 단위 테스트 설계",
       "기존 결제 웹뷰 재사용과 후원 복귀 흐름 설계",
@@ -131,7 +144,7 @@ export const projects: Project[] = [
       {
         title: "상태가 다른 AI API의 대기 경험 설계",
         problem: "AI 도슨트와 추천 문구 생성에는 약 10초가 걸리지만 도슨트만 상태를 제공하고 추천 문구는 빈 배열만 반환해 생성 중·실패·없음을 구분할 수 없었습니다.",
-        solution: "도슨트는 상태 기반 폴링을 목록 레벨에서 유지하고 결과를 캐시에 썼습니다. 상태 없는 추천 문구는 30초까지만 재조회하며 기본 문구를 항상 제공했습니다.",
+        solution: "백엔드가 제공한 AI 생성 API를 프론트엔드에서 연동했습니다. 도슨트는 상태 기반 폴링을 목록 레벨에서 유지하고 결과를 캐시에 썼으며, 상태 없는 추천 문구는 30초까지만 재조회하고 기본 문구를 항상 제공했습니다.",
         result: "모달을 닫아도 생성이 이어지고 재진입 시 완료 결과가 즉시 보입니다. 상태 없는 API에서도 무한 폴링을 차단했으며 30초 제한의 한계를 문서화했습니다.",
         flow: ["Generate", "Conditional Poll", "Cache", "Fallback Copy"],
       },
@@ -155,6 +168,8 @@ export const projects: Project[] = [
       src: "/images/projects/sebasa.png",
       alt: "조부모가 손주의 그림을 감상하고 후원하는 세바사 앱을 표현한 에디토리얼 이미지",
     },
+    visualLabel: "GRANDPARENT EXPERIENCE · 17 SCREENS",
+    externalLinks: iqooccaExternalLinks,
     accent: "moss",
   },
   {
@@ -167,8 +182,11 @@ export const projects: Project[] = [
     detailDescription: "React 16·MobX·jQuery 기반 관리자 웹을 React 19·TanStack 스택으로 도메인 단위로 이관한 프로젝트",
     role: "Frontend Developer · Feature Owner",
     period: "2026",
+    releaseStatus: "이관 개발 완료 · 운영 배포 전",
+    aiWorkflow: "Claude Code · 도메인 명세 기반 이관 · 구 앱 동등성 검증",
     tech: ["React 19", "TypeScript", "Vite", "TanStack Router", "TanStack Query", "TanStack Table", "Tailwind CSS", "Zustand"],
     highlights: [
+      "Claude Code가 따를 도메인 명세·골든 샘플·검증 체크리스트 설계",
       "레거시 관리자 웹의 도메인 단위 이관 설계",
       "도메인별 이관 명세와 공통 규칙 문서화",
       "필터·탭·페이지를 URL 상태로 옮긴 목록 규칙",
@@ -216,8 +234,8 @@ export const projects: Project[] = [
       },
       {
         title: "사람과 에이전트가 함께 쓰는 이관 가이드",
-        problem: "도메인별로 작업이 나뉘고 사람과 코딩 에이전트가 번갈아 붙다 보니, 구 앱의 비즈니스 규칙을 놓치면 화면만 비슷하고 동작이 달라질 위험이 있었습니다.",
-        solution: "읽어야 할 문서 순서와 절대 규칙, 디렉터리 규칙, 기준이 되는 골든 샘플, PR 체크리스트를 가이드 문서에 정리하고 작업 요청 템플릿을 만들었습니다.",
+        problem: "도메인별로 작업이 나뉘고 사람과 Claude Code가 번갈아 붙다 보니, 구 앱의 비즈니스 규칙을 놓치면 화면만 비슷하고 동작이 달라질 위험이 있었습니다.",
+        solution: "Claude Code가 먼저 읽어야 할 문서 순서와 절대 규칙, 디렉터리 규칙, 기준이 되는 골든 샘플, PR 체크리스트를 가이드 문서에 정리하고 작업 요청 템플릿을 만들었습니다.",
         result: "새 도메인 작업이 구 앱 소스와 API 명세를 교차 확인하는 단계에서 시작되고, 완료 기준을 구 앱과의 필터·컬럼·액션 동등성으로 고정했습니다.",
         flow: ["Spec Index", "Rules", "Golden Sample", "PR Checklist"],
       },
@@ -226,6 +244,8 @@ export const projects: Project[] = [
       src: "/images/projects/iqoocca-backoffice.png",
       alt: "레거시 관리자 웹을 새 스택으로 이관하는 과정을 표현한 에디토리얼 이미지",
     },
+    visualLabel: "BACKOFFICE MIGRATION · REACT 16 → 19",
+    externalLinks: iqooccaExternalLinks,
     accent: "moss",
   },
   {
@@ -237,8 +257,11 @@ export const projects: Project[] = [
     detailDescription: "공공 데이터를 검증해 여행 맥락으로 연결한 경주 관광 앱",
     role: "Frontend Developer · Team Project",
     period: "2026",
+    releaseStatus: "앱 출시 완료",
+    aiWorkflow: "Claude Code · 기능 구현 · API 검증 · 실기기 디버깅 · 출시 검증",
     tech: ["React Native", "Expo", "TypeScript", "Expo Router", "Zustand", "React Query"],
     highlights: [
+      "Claude Code를 활용한 기능 구현과 API·실기기 검증",
       "앱 진입 가드와 온보딩 플로우 설계",
       "zustand 상태 영속화와 OS 권한 상태 분리",
       "날씨 기반 실내·실외 추천 정렬",
