@@ -58,7 +58,7 @@ describe("project detail route", () => {
 
     expect(screen.getByRole("heading", { name: "커뮤니티" })).toBeInTheDocument();
     expect(screen.getByText("304")).toBeInTheDocument();
-    expect(screen.getAllByText("Result")).toHaveLength(6);
+    expect(screen.getAllByText("Result")).toHaveLength(4);
     expect(screen.getByRole("link", { name: /다음 프로젝트/ })).toHaveAttribute(
       "href",
       "/projects/sebasa",
@@ -89,7 +89,7 @@ describe("project detail route", () => {
   it("renders reungreung results and app screens", async () => {
     render(await ProjectPage({ params: Promise.resolve({ slug: "reungreung" }) }));
 
-    expect(screen.getAllByText("Result")).toHaveLength(7);
+    expect(screen.getAllByText("Result")).toHaveLength(6);
     expect(screen.getByRole("heading", { name: "App Screens" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "날씨 기반 장소 탐색" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "여행 동선 확인" })).toBeInTheDocument();

@@ -30,14 +30,13 @@ describe("projects", () => {
   it("contains every verified reungreung contribution and app screen", () => {
     const reungreung = getProjectBySlug("reungreung");
 
-    expect(reungreung?.caseStudies).toHaveLength(7);
+    expect(reungreung?.caseStudies).toHaveLength(6);
     expect(reungreung?.caseStudies.map(({ title }) => title)).toEqual([
       "앱 진입 가드와 온보딩 상태 설계",
       "날씨 기반 실내·실외 추천 정렬",
       "위치기반 API의 57% 누락 규명",
       "공공 API 정상 응답 오판정 수정",
       "상세 화면의 잘못된 빈 상태 제거",
-      "온보딩 3개 화면의 디자인 시스템 적용",
       "특정 언어에서 발생한 네이티브 크래시 해결",
     ]);
     expect(reungreung?.caseStudies.every(({ result }) => Boolean(result))).toBe(true);
@@ -83,7 +82,7 @@ describe("projects", () => {
     expect(backoffice?.company).toBe("아이쿠카");
     expect(backoffice?.category).toBe("company");
     expect(backoffice?.period).toBe("2026");
-    expect(backoffice?.caseStudies).toHaveLength(5);
+    expect(backoffice?.caseStudies).toHaveLength(6);
     expect(backoffice?.caseStudies.every(({ status }) => status === undefined)).toBe(true);
     expect(backoffice?.metrics).toEqual([
       { value: "14", label: "구현 화면" },
@@ -106,7 +105,7 @@ describe("projects", () => {
 
     expect(community?.company).toBe("아이쿠카");
     expect(community?.category).toBe("company");
-    expect(community?.caseStudies).toHaveLength(6);
+    expect(community?.caseStudies).toHaveLength(4);
     expect(community?.caseStudies.every(({ result }) => Boolean(result))).toBe(true);
     expect(community?.metrics).toEqual([
       { value: "304", label: "커뮤니티 관련 커밋" },
